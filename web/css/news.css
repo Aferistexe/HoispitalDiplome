@@ -1,0 +1,105 @@
+/* Общие стили */
+
+  .news-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .news-heading {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .news-item {
+    background-color: #202020a8;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .news-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .news-title {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .news-date {
+    color: #bbb;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  
+  .news-description {
+    line-height: 1.6;
+    color: #d1d1d1;
+  }
+  
+  @media (max-width: 480px) {
+    .news-container {
+      padding: 10px;
+    }
+  
+    .news-heading {
+      font-size: 24px;
+    }
+  
+    .news-title {
+      font-size: 18px;
+    }
+  
+    .news-item {
+      padding: 15px;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 768px) {
+    .news-container {
+      padding: 20px;
+    }
+  
+    .news-heading {
+      font-size: 26px;
+    }
+  
+    .news-title {
+      font-size: 20px;
+    }
+  
+    .news-item {
+      padding: 18px;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .news-container {
+      padding: 30px;
+    }
+  
+    .news-heading {
+      font-size: 28px;
+    }
+  
+    .news-title {
+      font-size: 22px;
+    }
+  
+    .news-item {
+      padding: 20px;
+    }
+  }
+  

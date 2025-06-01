@@ -1,0 +1,121 @@
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 30%, rgba(134,56,8,1) 100%);
+}
+
+.auth-container {
+    background: #202020a8;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;  /* Чтобы скрыть все, что выходит за пределы контейнера */
+}
+
+.auth-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.auth-tabs .tab {
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.auth-tabs .tab:hover,
+.auth-tabs .tab.active {
+    color: #fa9021;
+    border-bottom: 2px solid #fa9021;
+}
+
+.tab-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    background: #bbb;
+    color: #fff;
+    padding: 12px 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+input:focus {
+    border-color: #fa9021;
+}
+
+button.btn {
+    background-color: #fa9021;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+button.btn:hover {
+    background-color: #97540b;
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 30px;
+    }
+
+    .auth-tabs .tab {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    button.btn {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
