@@ -5,44 +5,22 @@ namespace app\controllers;
 use app\models\Contact;
 use app\models\ContactSearch;
 use Yii;
-use yii\data\ActiveDataProvider;
+use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\Response as WebResponse;
+use yii\web\ServerErrorHttpException;
 
 class ContactController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                    'toggle-completed' => ['POST'],
-                ],
-            ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'], // Только для авторизованных
-                    ],
-                ],
-            ],
-        ];
-    }
+
 
     public function actionIndex()
     {
         $searchModel = new ContactSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        
-        $dataProvider->pagination = [
-            'pageSize' => 8,
-        ];
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -50,17 +28,20 @@ class ContactController extends Controller
         ]);
     }
 
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
     public function actionCreate()
     {
         $model = new Contact();
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate() && $model->save()) {
-                Yii::$app->session->setFlash('success', "В скором времени с вами свяжутся");
-                return $this->redirect(['site/index']);
-            }
-            
-            Yii::$app->session->setFlash('error', "Ошибка при сохранении данных");
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Контакт успешно создан');
+            return $this->redirect(['site/index']);
         }
 
         return $this->render('create', [
@@ -70,34 +51,37 @@ class ContactController extends Controller
 
     public function actionToggleCompleted()
     {
-        if (!Yii::$app->request->isAjax) {
-            throw new \yii\web\BadRequestHttpException('Only AJAX requests allowed');
-        }
-
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        Yii::$app->response->format = WebResponse::FORMAT_JSON;
         
         $id = Yii::$app->request->post('id');
-        $isCompleted = (int)Yii::$app->request->post('is_completed', 0);
+        if (!$id) {
+            throw new BadRequestHttpException('ID контакта не указан');
+        }
         
         $model = $this->findModel($id);
-        $model->is_completed = $isCompleted;
         
-        if ($model->save(false)) {
+        if ($model->toggleCompleted()) {
             return [
                 'success' => true,
-                'completed' => (bool)$model->is_completed
+                'statusText' => $model->getStatusText(),
+                'statusClass' => $model->getStatusClass(),
+                'isCompleted' => $model->is_completed
             ];
         }
         
-        return [
-            'success' => false,
-            'errors' => $model->errors
-        ];
+        throw new ServerErrorHttpException('Не удалось обновить статус контакта');
+    }
+
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+        Yii::$app->session->setFlash('success', 'Контакт успешно удален');
+        return $this->redirect(['index']);
     }
 
     protected function findModel($id)
     {
-        if ($model = Contact::findOne($id)) {
+        if (($model = Contact::findOne($id)) !== null) {
             return $model;
         }
 

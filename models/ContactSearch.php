@@ -4,73 +4,71 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Contact;
 
-/**
- * ContactSearch represents the model behind the search form of `app\models\Contact`.
- */
 class ContactSearch extends Contact
 {
-    /**
-     * {@inheritdoc}
-     */
+    public $updated_at;  // Добавил объявление свойства, так как оно используется
+
     public function rules()
     {
         return [
-            [['id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'phone', 'email', 'message', 'ip_address', 'user_agent'], 'safe'],
+            [['id', 'is_completed', 'status'], 'integer'],
+            [['name', 'phone', 'email', 'message', 'ip_address'], 'safe'],
+            [['created_at', 'updated_at'], 'safe'], // Добавил updated_at сюда
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function scenarios()
-    {
-        // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
-    }
-
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     * @param string|null $formName Form name to be used into `->load()` method.
-     *
-     * @return ActiveDataProvider
-     */
-    public function search($params, $formName = null)
+    public function search($params)
     {
         $query = Contact::find();
 
-        // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'defaultOrder' => ['created_at' => SORT_DESC],
+            ],
+            'pagination' => [
+                'pageSize' => 10,
+            ],
         ]);
 
-        $this->load($params, $formName);
+        $this->load($params);
 
         if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
             return $dataProvider;
         }
 
-        // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'is_completed' => $this->is_completed,
             'status' => $this->status,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'phone', $this->phone])
             ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'message', $this->message])
-;
+            ->andFilterWhere(['like', 'ip_address', $this->ip_address]);
+
+        // Фильтрация по created_at (один день)
+        if ($this->created_at) {
+            $start = strtotime($this->created_at);
+            if ($start !== false) {
+                $query->andFilterWhere(['>=', 'created_at', $start]);
+                $query->andFilterWhere(['<', 'created_at', $start + 86400]);
+            }
+        }
+
+        // Фильтрация по updated_at (один день)
+        if ($this->updated_at) {
+            $start = strtotime($this->updated_at);
+            if ($start !== false) {
+                $query->andFilterWhere(['>=', 'updated_at', $start]);
+                $query->andFilterWhere(['<', 'updated_at', $start + 86400]);
+            }
+        }
 
         return $dataProvider;
     }
 }
+

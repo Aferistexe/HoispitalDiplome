@@ -1,0 +1,90 @@
+/* contact-view.css */
+
+.contact-view {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-view h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
+}
+
+.contact-view p {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-view .btn {
+    margin: 0 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-view .btn-primary {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: white;
+}
+
+.contact-view .btn-primary:hover {
+    background-color: #286090;
+    border-color: #204d74;
+}
+
+.contact-view .btn-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    color: white;
+}
+
+.contact-view .btn-danger:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+.contact-view .table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+.contact-view .table th,
+.contact-view .table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+}
+
+.contact-view .table th {
+    background-color: #f5f5f5;
+    text-align: left;
+    font-weight: bold;
+}
+
+.contact-view .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.contact-view .table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Стили для статуса */
+.contact-view .table td[data-status="0"] {
+    color: #d9534f; /* красный для неактивного статуса */
+    font-weight: bold;
+}
+
+.contact-view .table td[data-status="1"] {
+    color: #5cb85c; /* зеленый для активного статуса */
+    font-weight: bold;
+}

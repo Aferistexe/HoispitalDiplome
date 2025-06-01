@@ -3,93 +3,80 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
 
-/**
- * This is the model class for table "contact".
- *
- * @property int $id
- * @property string $name
- * @property string $phone
- * @property string $email
- * @property string $message
- * @property string|null $ip_address
- * @property string|null $user_agent
- * @property int|null $status 0-new, 1-processed
- * @property int $is_completed
- * @property int $created_at
- * @property int $updated_at
- */
-class Contact extends \yii\db\ActiveRecord
+class Contact extends ActiveRecord
 {
     const STATUS_NEW = 0;
     const STATUS_PROCESSED = 1;
     const STATUS_COMPLETED = 2;
 
-    /**
-     * {@inheritdoc}
-     */
     public static function tableName()
     {
         return 'contact';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => time(),
+            ],
+        ];
+    }
+
     public function rules()
     {
         return [
             [['name', 'phone', 'email', 'message'], 'required'],
-            [['message', 'user_agent'], 'string'],
-            [['status', 'is_completed', 'created_at', 'updated_at'], 'integer'],
-            [['name', 'email'], 'string', 'max' => 100],
-            [['phone'], 'string', 'max' => 20],
-            [['ip_address'], 'string', 'max' => 45],
-            ['status', 'default', 'value' => self::STATUS_NEW],
-            ['is_completed', 'default', 'value' => 0],
+            [['message'], 'string'],
+            [['status'], 'integer'],
+            [['is_completed'], 'boolean'],
+            [['name', 'phone', 'email', 'ip_address'], 'string', 'max' => 255],
+            ['email', 'email'],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'phone' => 'Phone',
+            'name' => 'Имя',
+            'phone' => 'Телефон',
             'email' => 'Email',
-            'message' => 'Message',
-            'ip_address' => 'IP Address',
-            'user_agent' => 'User Agent',
-            'status' => 'Status',
-            'is_completed' => 'Выполнено',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'message' => 'Сообщение',
+            'ip_address' => 'IP адрес',
+            'is_completed' => 'Завершено',
+            'status' => 'Статус',
+            'created_at' => 'Дата создания',
+            'updated_at' => 'Дата обновления',
         ];
     }
 
-    /**
-     * Получение списка статусов
-     * @return array
-     */
-    public static function getStatuses()
+    public function getStatusText(): string
     {
-        return [
-            self::STATUS_NEW => 'Новый',
-            self::STATUS_PROCESSED => 'В обработке',
-            self::STATUS_COMPLETED => 'Завершен',
-        ];
+        return $this->is_completed ? 'Завершено' : 'Новый';
     }
-
-    /**
-     * Получение текстового значения статуса
-     * @return string
-     */
-    public function getStatusText()
+    
+    public function getStatusClass(): string
     {
-        $statuses = self::getStatuses();
-        return $statuses[$this->status] ?? 'Неизвестный статус';
+        return $this->is_completed ? 'success' : 'secondary';
+    }
+    
+    public function toggleCompleted()
+    {
+        $this->is_completed = (int)!$this->is_completed;
+        
+        if ($this->is_completed) {
+            $this->status = self::STATUS_COMPLETED;
+        } else {
+            $this->status = self::STATUS_PROCESSED;
+        }
+        
+        return $this->save(false, ['is_completed', 'status']);
     }
 }

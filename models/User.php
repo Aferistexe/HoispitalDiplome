@@ -21,8 +21,6 @@ use Yii;
  */
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
-
-
     /**
      * {@inheritdoc}
      */
@@ -37,7 +35,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['full_name', 'phone', 'email', 'login', 'password',], 'required'],
+            [['full_name', 'phone', 'email', 'login', 'password'], 'required'],
             [['role_id'], 'integer'],
             [['full_name', 'email'], 'string', 'max' => 100],
             [['phone', 'login'], 'string', 'max' => 50],
@@ -83,44 +81,85 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->hasOne(Role::class, ['id' => 'role_id']);
     }
+
+    /**
+     * {@inheritdoc}
+     */
     public static function findIdentity($id)
     {
         return static::findOne($id);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        //return static::findOne(['access_token' => $token]);
+        // не реализовано, можно вернуть null
+        return null;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getAuthKey()
     {
         return $this->auth_key;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function validateAuthKey($authKey)
     {
         return $this->auth_key === $authKey;
     }
 
+    /**
+     * Найти пользователя по логину
+     *
+     * @param string $login
+     * @return static|null
+     */
     public static function findByUsername($login)
-{
-    return static::findOne(['login' => $login]);
-}
-public function generateAuthKey()
-{
-    $this->auth_key = Yii::$app->getsecurity()->generateRandomString();
-}
-public function validatePassword($password)
-{
-    return Yii::$app->getsecurity()->validatePassword($password, $this->password);
-}
-public function generatePassword($password){
-    $this->password = Yii::$app->getSecurity()->generatePasswordHash($password);
-}
+    {
+        return static::findOne(['login' => $login]);
+    }
+
+    /**
+     * Генерация случайного ключа аутентификации
+     */
+    public function generateAuthKey()
+    {
+        $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+
+    /**
+     * Проверка пароля (хэш сравнивается с введённым)
+     *
+     * @param string $password
+     * @return bool
+     */
+    public function validatePassword($password)
+    {
+        return Yii::$app->security->validatePassword($password, $this->password);
+    }
+
+    /**
+     * Генерация хэша пароля из открытого пароля
+     *
+     * @param string $password
+     */
+    public function generatePassword($password)
+    {
+        $this->password = Yii::$app->security->generatePasswordHash($password);
+    }
 }

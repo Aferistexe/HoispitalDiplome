@@ -1,25 +1,41 @@
 $(document).on('change', '.contact-completed', function() {
-    const checkbox = $(this);
-    const id = checkbox.data('id');
-    const isCompleted = checkbox.is(':checked') ? 1 : 0;
+    const $checkbox = $(this);
+    const id = $checkbox.data('id');
+    const isCompleted = $checkbox.is(':checked') ? 1 : 0;
+    
+
     
     $.ajax({
-        url: '/contact/toggle-completed',
+        url: $checkbox.data('url') || '/contact/toggle-completed', // Можно задать URL через data-атрибут
         type: 'POST',
         data: {
             id: id,
-            is_completed: isCompleted
+            is_completed: isCompleted,
+            _csrf: yii.getCsrfToken() // Используем встроенный метод Yii2 для CSRF
         },
+        dataType: 'json',
         success: function(response) {
-            if (response.success) {
-                checkbox.closest('.contact-card').toggleClass('completed', response.completed);
+            if (response && response.success) {
+                $checkbox.closest('.contact-card')
+                    .toggleClass('completed', isCompleted)
+                    .find('.status-badge')
+                    .text(isCompleted ? 'Выполнено' : 'Новое');
+                
+                // Обновляем статус в таблице, если нужно
+                if (response.newStatus) {
+                    $checkbox.closest('tr').find('.status-column').text(response.newStatus);
+                }
             } else {
-                checkbox.prop('checked', !checkbox.prop('checked'));
+                yii.handleAjaxError(response);
+                $checkbox.prop('checked', !isCompleted);
             }
         },
         error: function(xhr) {
-            alert('Ошибка: ' + xhr.statusText);
-            checkbox.prop('checked', !checkbox.prop('checked'));
+            yii.handleAjaxError(xhr.responseJSON || xhr.statusText);
+            $checkbox.prop('checked', !isCompleted);
+        },
+        complete: function() {
+            $checkbox.prop('disabled', false);
         }
     });
 });

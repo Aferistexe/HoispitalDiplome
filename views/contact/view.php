@@ -5,10 +5,9 @@ use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
 /** @var app\models\Contact $model */
+$this->registerCssFile('@web/css/contact-view.css');
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Contacts', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="contact-view">

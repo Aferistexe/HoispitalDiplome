@@ -1,116 +1,74 @@
-/* Contact Form Container */
-.contact-create {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+/* contact.css */
+
+/* Основные стили для завершенных контактов */
+.contact-card.completed {
+    border-left: 4px solid #4CAF50;
+    background-color: rgba(76, 175, 80, 0.03);
+    opacity: 0.9;
 }
 
-/* Form Header */
-.contact-create h1 {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 10px;
+/* Блокировка элементов интерфейса */
+.contact-card.completed .contact-completed {
+    pointer-events: none;
+    opacity: 0.7;
+    cursor: default;
 }
 
-.contact-create h1::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: #3498db;
+/* Стили для dropdown меню */
+.contact-card.completed .dropdown-toggle {
+    display: none; /* Скрываем кнопку меню */
 }
 
-/* Form Styling */
-.contact-form {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-/* Form Fields */
-.form-control {
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    transition: all 0.3s ease;
-}
-
-.form-control:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
-}
-
-/* Labels */
-.control-label {
-    font-weight: 600;
-    color: #34495e;
-    margin-bottom: 8px;
-}
-
-/* Textarea */
-textarea.form-control {
-    min-height: 120px;
-    resize: vertical;
-}
-
-/* Submit Button */
-.btn-success {
-    background-color: #2ecc71;
+.contact-card.completed .dropdown-menu {
+    display: block !important; /* Показываем только принудительно */
+    box-shadow: none;
     border: none;
-    padding: 10px 25px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    width: 100%;
-    margin-top: 1rem;
+    position: static;
+    float: none;
+    padding: 0;
 }
 
-.btn-success:hover {
-    background-color: #27ae60;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+/* Стили для пунктов меню */
+.contact-card.completed .dropdown-item {
+    display: none; /* Скрываем все пункты по умолчанию */
+    padding: 0.25rem 1rem;
 }
 
-.btn-success:active {
-    transform: translateY(0);
+/* Показываем только кнопку удаления */
+.contact-card.completed .dropdown-item.text-danger {
+    display: block;
+    color: #dc3545 !important;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
-/* Breadcrumbs */
-.breadcrumb {
-    background-color: transparent;
-    padding: 0.5rem 0;
-    font-size: 0.9rem;
+/* Стили для бейджа статуса */
+.contact-card.completed .status-badge {
+    background-color: #4CAF50 !important;
+    color: white;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .contact-create {
-        padding: 1rem;
-    }
-    
-    .contact-form {
-        padding: 1.5rem;
-    }
+/* Текст и ссылки */
+.contact-card.completed .card-title,
+.contact-card.completed .contact-info,
+.contact-card.completed .card-footer {
+    color: #777;
 }
 
-/* Form Validation */
-.has-error .form-control {
-    border-color: #e74c3c;
+.contact-card.completed a {
+    color: #6c757d !important;
+    pointer-events: none;
+    text-decoration: none;
+    cursor: default;
 }
 
-.has-error .help-block {
-    color: #e74c3c;
-    font-size: 0.85rem;
-    margin-top: 5px;
+/* Исключение для кнопки удаления */
+.contact-card.completed a.text-danger {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* Адаптация для телефона/email */
+.contact-card.completed .text-decoration-none {
+    color: #6c757d !important;
 }

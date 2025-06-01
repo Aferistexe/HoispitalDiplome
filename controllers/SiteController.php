@@ -2,47 +2,42 @@
 
 namespace app\controllers;
 
-use app\models\Contact;
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\Response;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
+use app\models\Contact;
 use app\models\ContactForm;
+use app\models\LoginForm;
 use app\models\Role;
 
 class SiteController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
+    
     public function behaviors()
     {
         return [
             'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout'],
+                'class' => \yii\filters\AccessControl::class,
+                'only' => ['logout', 'index'], // <- ВАЖНО
                 'rules' => [
                     [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['?', '@'], // гости и авторизованные
+                    ],
                 ],
             ],
         ];
     }
+    
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function actions()
     {
         return [
@@ -56,41 +51,35 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         return $this->render('index');
     }
+
     public function actionProducs()
     {
         return $this->render('producs');
     }
+
     public function actionDoctors()
     {
         return $this->render('doctors');
     }
-        public function actionNews()
+
+    public function actionNews()
     {
         return $this->render('news');
     }
-    public function actionContacs()
+
+    public function actionContacts()
     {
         $model = new Contact();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->validate()) {
-                $model -> generateAuthKey();
-                $model -> generatePassword($model->password);
-                $model->role_id = Role::$NEW_USER;
-                
-                
+        if (Yii::$app->request->isPost) {
+            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+                // В зависимости от логики, если нужно, исправить ниже
                 $model->save();
-
-                return $this->redirect(['login']);
+                return $this->redirect(['site/index']);
             }
         } else {
             $model->loadDefaultValues();
@@ -101,20 +90,6 @@ class SiteController extends Controller
         ]);
     }
 
-
-
-    /**
-     * Login action.
-     *
-     * @return Response|string
-     */
-
-
-    /**
-     * Logout action.
-     *
-     * @return Response
-     */
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -122,11 +97,6 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
     public function actionContact()
     {
         $model = new ContactForm();
@@ -140,11 +110,6 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
     public function actionAbout()
     {
         return $this->render('about');

@@ -3,43 +3,45 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/** @var yii\web\View $this */
 /** @var app\models\ContactSearch $model */
-/** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="contact-search">
-
+<div class="contact-search mb-3">
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'options' => [
+            'data-pjax' => 1,
+            'class' => 'row g-3'
+        ],
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="col-md-3">
+        <?= $form->field($model, 'name')->textInput(['placeholder' => 'Поиск по имени']) ?>
+    </div>
 
-    <?= $form->field($model, 'name') ?>
+    <div class="col-md-3">
+        <?= $form->field($model, 'email')->textInput(['placeholder' => 'Поиск по email']) ?>
+    </div>
 
-    <?= $form->field($model, 'phone') ?>
+    <div class="col-md-2">
+        <?= $form->field($model, 'status')->dropDownList([
+            $model::STATUS_NEW => 'Новый',
+            $model::STATUS_PROCESSED => 'В обработке',
+            $model::STATUS_COMPLETED => 'Завершен'
+        ], ['prompt' => 'Все статусы']) ?>
+    </div>
 
-    <?= $form->field($model, 'email') ?>
+    <div class="col-md-2">
+        <?= $form->field($model, 'created_at')->input('date', ['placeholder' => 'Дата создания']) ?>
+    </div>
 
-    <?= $form->field($model, 'message') ?>
-
-    <?php // echo $form->field($model, 'ip_address') ?>
-
-    <?php // echo $form->field($model, 'user_agent') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
-
-    <?php // echo $form->field($model, 'created_at') ?>
-
-    <?php // echo $form->field($model, 'updated_at') ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+    <div class="col-md-2 d-flex align-items-end">
+        <div class="mb-3">
+            <?= Html::submitButton('<i class="fas fa-search"></i> Поиск', ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('<i class="fas fa-redo"></i> Сброс', ['index'], ['class' => 'btn btn-outline-secondary']) ?>
+        </div>
     </div>
 
     <?php ActiveForm::end(); ?>
-
 </div>
