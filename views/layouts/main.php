@@ -11,6 +11,7 @@ use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
+
 AppAsset::register($this);
 
 $this->registerCsrfMetaTags();
@@ -19,6 +20,7 @@ $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, 
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
+$this->registerJsFile('@web/js/contact.js', ['depends' => [\yii\web\JqueryAsset::class]]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -41,8 +43,13 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Producs', 'url' => ['/site/producs']],
+            ['label' => 'Doctors', 'url' => ['/site/doctors']],
+            ['label' => 'News', 'url' => ['/site/news']],
             ['label' => 'Orders', 'url' => ['/order/index'],'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_USER)],
             ['label' => 'Admin', 'url' => ['/order/admin'],'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_ADMIN)],
+            ['label' => 'Orders', 'url' => ['/contact/create'],'visible' => Yii::$app->user->isGuest],
+            ['label' => 'feedbackContact', 'url' => ['/contact/index'],'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_ADMIN)],
 
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/user/login']]

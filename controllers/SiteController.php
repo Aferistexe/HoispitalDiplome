@@ -63,6 +63,20 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+    public function actionProducs()
+    {
+        return $this->render('producs');
+    }
+    public function actionDoctors()
+    {
+        return $this->render('doctors');
+    }
+        public function actionNews()
+    {
+        return $this->render('news');
+    }
+    
+
 
     /**
      * Login action.

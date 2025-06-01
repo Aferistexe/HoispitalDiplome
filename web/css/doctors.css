@@ -1,116 +1,203 @@
-.doctors-container {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .doctors-container h2 {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 40px;
-    color: #ffffff;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-  
-  .doctors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-  }
-  
-  .doctor {
-    background-color: #20202085;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #cac9c9;
-  }
-  
-  .doctor:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  }
-  
-  .doctor img {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-  }
-  
-  .doctor img:hover {
-    transform: scale(1.1);
-  }
-  
-  .doctor h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-  
-  .doctor p {
-    font-size: 16px;
-    color: #ffffff;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-  
-  .doctor p.description {
-    font-size: 14px;
-    color: #ffffff;
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
     line-height: 1.6;
-    text-align: left;
-  }
-  
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    .doctors-container {
-      padding: 30px 10px;
+    background-color: #f8f9fa;
+}
+
+/* Navigation */
+.cyber-nav {
+    background-color: #1a1a2e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-highlight {
+    color: #00ffff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00ffff !important;
+}
+
+.nav-link.active {
+    color: #00ffff !important;
+    border-bottom: 2px solid #00ffff;
+}
+
+/* Hero Section */
+.rippers-hero {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+    color: white;
+    border-radius: 3rem;
+}
+
+.rippers-hero h1 {
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+}
+
+.rippers-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Rippers Grid */
+.ripper-card {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ripper-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ripper-image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.ripper-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.ripper-card:hover .ripper-image img {
+    transform: scale(1.05);
+}
+
+.ripper-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ripper-name {
+    color: #1a1a2e;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.ripper-title {
+    color: #00a8cc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.ripper-description {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.btn-ripper {
+    background-color: #1a1a2e;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    width: 100%;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 0.25rem;
+}
+
+.btn-ripper:hover {
+    background-color: #00a8cc;
+    color: white;
+}
+
+/* CTA Section */
+.rippers-cta {
+    background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)), url('https://via.placeholder.com/1920x600/2a2a40/ffffff?text=Кибермодификации');
+    background-size: cover;
+    background-position: center;
+}
+
+.rippers-cta h2 {
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.rippers-cta .btn-primary {
+    background-color: #00ffff;
+    border-color: #00ffff;
+    color: #1a1a2e;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.rippers-cta .btn-primary:hover {
+    background-color: transparent;
+    color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Footer */
+.cyber-footer {
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+.footer-logo {
+    color: #00ffff;
+    font-weight: 700;
+}
+
+.cyber-footer a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cyber-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .ripper-card {
+        margin-bottom: 1.5rem;
     }
-  
-    .doctor img {
-      width: 180px;
-      height: 180px;
+}
+
+@media (max-width: 768px) {
+    .rippers-hero {
+        padding: 3rem 0;
     }
-  
-    .doctors-container h2 {
-      font-size: 28px;
+    
+    .rippers-hero h1 {
+        font-size: 2rem;
     }
-  
-    .doctor h3 {
-      font-size: 20px;
+    
+    .ripper-name {
+        font-size: 1.25rem;
     }
-  
-    .doctor p {
-      font-size: 14px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .doctors-container {
-      padding: 20px 10px;
-    }
-  
-    .doctor img {
-      width: 150px;
-      height: 150px;
-    }
-  
-    .doctors-container h2 {
-      font-size: 24px;
-    }
-  
-    .doctor h3 {
-      font-size: 18px;
-    }
-  
-    .doctor p {
-      font-size: 13px;
-    }
-  }
+}

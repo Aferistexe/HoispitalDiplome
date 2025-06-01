@@ -1,203 +1,226 @@
 <?php
 
-/** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Помощи.нет</title>
 
-    <!-- Предварительное подключение к ресурсам Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Подключение шрифтов Wix Madefor Display и Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Подключение основного CSS файла -->
-    <link rel="stylesheet" href="/css/main.css">
-
-    <!-- Подключение Font Awesome для иконок -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="wrapper">
-        <div class="hero container">
-            <div class="hero--info">
-                <h1>Добро пожаловать в Помощи.нет</h1>
-                <p>Ведущая клиника кибермедицины в Найтсити. Мы предлагаем передовые медицинские решения, основанные на
-                    инновационных технологиях, для обеспечения здоровья и благополучия наших пациентов.
-                    "Помощь.net" - это не просто клиника, это место, где кибермедицина встречает человеческое понимание и
-                    заботу. Наша команда врачей, специализирующихся в области киберимплантов, обеспечивает индивидуальный
-                    подход к каждому пациенту, помогая им восстановить здоровье и качество жизни.
-                    Мы предлагаем широкий спектр услуг, включая установку, обслуживание и обновление киберимплантов, а
-                    также реабилитацию после операций. Наши современные медицинские установки и передовые технологии
-                    позволяют нам обеспечивать высококачественное и безопасное медицинское обслуживание нашим пациентам.
-                </p>
-                <button class="btn">Подробнее</button>
-            </div>
-            <img src="img/main.jpg" alt="Клиника кибермедицины">
-        </div>
-
-        <!-- Блок "Наши специализации" -->
-        <div class="specialities-container">
-            <h2 class="specialities-title">Наши специализации</h2>
-            <hr class="specialities-divider" />
-            <div class="specialities-content">
-                <p class="specialities-text">
-                    Имплантация киберпротезов, кибернетическая хирургия, программирование нейроинтерфейсов и многое другое.
-                </p>
-            </div>
-        </div>
-
-        <div class="services-container container">
-            <div class="service-item">
-                <i class="logo fa fa-ambulance"></i>
-                <div class="text">
-                    <h3>Круглосуточная поддержка скорой помощи</h3>
-                    <p>Круглосуточная поддержка скорой помощи гарантирует быстрое реагирование на любую медицинскую
-                        ситуацию в любое время суток.</p>
-                </div>
-            </div>
-            <div class="service-item">
-                <i class="logo fa fa-eye"></i>
-                <div class="text">
-                    <h3>Киберимплантация 2.0</h3>
-                    <p>Революционная технология для улучшения человеческих возможностей.</p>
-                </div>
-            </div>
-            <div class="service-item">
-                <i class="logo fa fa-brain"></i>
-                <div class="text">
-                    <h3>Улучшение мозговых функций с помощью киберимплантов</h3>
-                    <p>Киберимпланты для мозга - это передовые медицинские устройства, разработанные для оптимизации и
-                        улучшения функций человеческого мозга.</p>
-                </div>
-            </div>
-            <div class="service-item">
-                <i class="logo fa fa-hospital"></i>
-                <div class="text">
-                    <h3>У нас 20 современных операционных залов</h3>
-                    <p>Наши операционные залы обеспечивают комфорт и безопасность как для пациентов, так и для
-                        медицинского персонала.</p>
-                </div>
-            </div>
-            <div class="service-item">
-                <i class="logo fa fa-user-md"></i>
-                <div class="text">
-                    <h3>Центр замены суставов</h3>
-                    <p>Проведение операций по замене суставов с использованием передовых имплантатов. Наша команда
-                        опытных хирургов и медицинских специалистов обеспечивает высококачественное лечение и
-                        реабилитацию пациентов с заболеваниями суставов.</p>
-                </div>
-            </div>
-            <div class="service-item">
-                <i class="logo fa fa-microscope"></i>
-                <div class="text">
-                    <h3>Центр киберимплантации</h3>
-                    <p>Где технология встречает человеческий организм.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Пакеты здоровья -->
-        <div class="health-packages-container container">
-            <h2 class="block-title">Пакеты здоровья</h2>
-            <hr class="divider-line" />
-            <div class="packages-wrapper">
-                <!-- Пример пакетов, каждый можно оформить динамически из базы данных -->
-                <div class="package">
-                    <h3 class="unity-title">Базовое благополучие Помощи.net</h3>
-                    <div>
-                        <div class="price-container">
-                            <p class="price">Цена: $1500</p>
-                        </div>
-                        <button class="bron-btn">Забронировать</button>
-                        <a href="#" class="read-a">Подробнее</a>
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold mb-4">Ведущая клиника кибермедицины в Нейтенти</h1>
+                        <p class="lead mb-4">Мы предлагаем передовые медицинские решения, основанные на инновационных технологиях, для обеспечения здоровья и благополучия наших пациентов.</p>
+                        <a href="#" class="btn btn-primary btn-lg">Подробнее</a>
                     </div>
-                    <ul>
-                        <li><span class="icon-Health check">&#10004;</span>Кибер-диагностика и анализ</li>
-                        <li><span class="icon-Health check">&#10004;</span>КиберЭКГ</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Киберимпланты Премиум</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Сканирование киберлипидов</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Киберрентген грудной клетки</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Киберсахар в крови</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Основной пакет киберздоровья</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Базовый план киберблагополучия</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Тесты функции легких</li>
-                    </ul>
-                </div>
-                <div class="package">
-                    <h3 class="unity-title">Золотое благополучие Помощи.net</h3>
-                    <div>
-                        <div class="price-container">
-                            <p class="price">Цена: $3000</p>
-                        </div>
-                        <button class="bron-btn">Забронировать</button>
-                        <a href="#" class="read-a">Подробнее</a>
+                    <div class="col-lg-6">
+                        <img src="/web/img/main.jpg" alt="Кибермедицина" class="img-fluid rounded-3 shadow31">
                     </div>
-                    <ul>
-                        <li><span class="icon-Health check">&#10004;</span>Кибер-диагностика и анализ</li>
-                        <li><span class="icon-Health check">&#10004;</span>КиберЭКГ</li>
-                        <li><span class="icon-Health check">&#10004;</span>Киберимпланты Премиум</li>
-                        <li><span class="icon-Health check">&#10004;</span>Сканирование киберлипидов</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Киберрентген грудной клетки</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Киберсахар в крови</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Основной пакет киберздоровья</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Базовый план киберблагополучия</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Тесты функции легких</li>
-                    </ul>
-                </div>
-                <div class="package">
-                    <h3 class="unity-title">Премиум благополучие Помощи.net</h3>
-                    <div>
-                        <div class="price-container">
-                            <p class="price">Цена: $5000</p>
-                        </div>
-                        <button class="bron-btn">Забронировать</button>
-                        <a href="#" class="read-a">Подробнее</a>
-                    </div>
-                    <ul>
-                        <li><span class="icon-Health check">&#10004;</span>Кибер-диагностика и анализ</li>
-                        <li><span class="icon-Health check">&#10004;</span>КиберЭКГ</li>
-                        <li><span class="icon-Health check">&#10004;</span>Киберимпланты Премиум</li>
-                        <li><span class="icon-Health check">&#10004;</span>Сканирование киберлипидов</li>
-                        <li><span class="icon-Health check">&#10004;</span>Киберрентген грудной клетки</li>
-                        <li><span class="icon-Health check">&#10004;</span>Киберсахар в крови</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Основной пакет киберздоровья</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Базовый план киберблагополучия</li>
-                        <li><span class="icon-Health cross">&#10008;</span>Тесты функции легких</li>
-                    </ul>
-                </div>
-                <div class="package">
-                    <h3 class="unity-title">Эксклюзивное благополучие Помощи.net</h3>
-                    <div>
-                        <div class="price-container">
-                            <p class="price">Цена: $10000</p>
-                        </div>
-                        <button class="bron-btn">Забронировать</button>
-                        <a href="#" class="read-a">Подробнее</a>
-                    </div>
-                    <ul>
-                        <li><span class="icon-Health check">&#10004;</span>Кибер-диагностика и анализ</li>
-                        <li><span class="icon-Health check">&#10004;</span>КиберЭКГ</li>
-                        <li><span class="icon-Health check">&#10004;</span>Киберимпланты Премиум</li>
-                        <li><span class="icon-Health check">&#10004;</span>Сканирование киберлипидов</li>
-                        <li><span class="icon-Health check">&#10004;</span>Киберрентген грудной клетки</li>
-                        <li><span class="icon-Health check">&#10004;</span>Киберсахар в крови</li>
-                        <li><span class="icon-Health check">&#10004;</span>Основной пакет киберздоровья</li>
-                        <li><span class="icon-Health check">&#10004;</span>Базовый план киберблагополучия</li>
-                        <li><span class="icon-Health check">&#10004;</span>Тесты функции легких</li>
-                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-</body>
-</html>
+        </section>
+
+        <section class="about-section py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h2 class="section-title mb-4">"Помощь.нет" - это не просто клиника</h2>
+                        <p class="section-text">Это место, где кибермедицина встречает человеческое понимание и заботу. Наша команда врачей, специализирующихся в области кибермиплантов, обеспечивает индивидуальный подход к каждому пациенту, помогая им восстановить здоровье и качество жизни.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <main class="cyber-main">
+        <!-- Hero Section -->
+        <section class="specializations-hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-4 fw-bold mb-4">Наши специализации</h1>
+                        <p class="lead">Имплантация киберпротезов, кибернетическая икрургия, программирование нейроинтерфейсов и многое другое.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specializations Grid -->
+        <section class="specializations-grid py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- 24/7 Support -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="specialization-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-alarm"></i>
+                            </div>
+                            <h3>Круглосуточная поддержка скорой помощи</h3>
+                            <p>Круглосуточная поддержка скорой помощи гарантирует быстрое реагирование на любую медицинскую ситуацию в любое время суток.</p>
+                        </div>
+                    </div>
+
+                    <!-- Brain Functions -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="specialization-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-cpu"></i>
+                            </div>
+                            <h3>Улучшение мозговых функций с помощью кибермиллантов</h3>
+                            <p>Кибермилланты для мозга - это передовые медицинские устройства, разработанные для оптимизации и улучшения функций человеческого мозга.</p>
+                        </div>
+                    </div>
+
+                    <!-- Joint Replacement -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="specialization-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-bone"></i>
+                            </div>
+                            <h3>Центр замены суставов</h3>
+                            <p>Проведение операций по замене суставов с использованием передовых имплантатов. Наша команда опытных икрургов и медицинских специалистов обеспечивает высококачественное лечение и реабилитацию пациентов с заболеваниями суставов.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cyberimplantation 2.0 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="specialization-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-robot"></i>
+                            </div>
+                            <h3>Кибермиллантация 2.0</h3>
+                            <p>Рекомендованная технология для улучшения человеческих возможностей.</p>
+                        </div>
+                    </div>
+
+                    <!-- Operating Rooms -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="specialization-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-hospital"></i>
+                            </div>
+                            <h3>У нас 20 современных операционных залов</h3>
+                            <p>Наши операционные залы обеспечивают комфорт и безопасность как для пациентов, так и для медицинского персонала.</p>
+                        </div>
+                    </div>
+
+                    <!-- Cyberimplantation Center -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="specialization-card h-100">
+                            <div class="card-icon">
+                                <i class="bi bi-code-square"></i>
+                            </div>
+                            <h3>Центр кибермиллантации</h3>
+                            <p>Где технология встречает человеческий организм.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <main class="health-packages-main">
+        <!-- Hero Section -->
+        <section class="packages-hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center">
+                        <h1 class="display-4 fw-bold mb-4">Пакеты здоровья</h1>
+                        <p class="lead">Выберите оптимальный пакет кибермедицинских услуг для вашего благополучия</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packages Grid -->
+        <section class="packages-grid py-5">
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <!-- Basic Package -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="health-package basic-package">
+                            <div class="package-header">
+                                <h3>Базовое благополучие</h3>
+                                <div class="price">$1500</div>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="bi bi-check-circle"></i> Кибер-диагностика и анализ</li>
+                                <li><i class="bi bi-check-circle"></i> КиберЭКГ</li>
+                                <li><i class="bi bi-check-circle"></i> Кибермилланты Премиум</li>
+                                <li><i class="bi bi-check-circle"></i> Сканирование киберлипидов</li>
+                                <li><i class="bi bi-check-circle"></i> Киберрентген грудной клетки</li>
+                                <li><i class="bi bi-check-circle"></i> Киберсахар в крови</li>
+                                <li><i class="bi bi-check-circle"></i> Основной пакет киберзасровья</li>
+                                <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
+                                <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
+                            </ul>
+                            <button class="btn btn-package">Забронировать</button>
+                        </div>
+                    </div>
+
+                    <!-- Gold Package -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="health-package gold-package">
+                            <div class="package-header">
+                                <h3>Золотое благополучие</h3>
+                                <div class="price">$3000</div>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="bi bi-check-circle"></i> Кибер-диагностика и анализ</li>
+                                <li><i class="bi bi-check-circle"></i> КиберЭКГ</li>
+                                <li><i class="bi bi-check-circle"></i> Кибермилланты Премиум</li>
+                                <li><i class="bi bi-check-circle"></i> Сканирование киберлипидов</li>
+                                <li><i class="bi bi-check-circle"></i> Киберрентген грудной клетки</li>
+                                <li><i class="bi bi-check-circle"></i> Киберсахар в крови</li>
+                                <li><i class="bi bi-check-circle"></i> Основной пакет киберзасровья</li>
+                                <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
+                                <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
+                            </ul>
+                            <button class="btn btn-package">Забронировать</button>
+                        </div>
+                    </div>
+
+                    <!-- Premium Package -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="health-package premium-package">
+                            <div class="package-header">
+                                <h3>Премиум благополучие</h3>
+                                <div class="price">$5000</div>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="bi bi-check-circle"></i> Кибер-диагностика и анализ</li>
+                                <li><i class="bi bi-check-circle"></i> КиберЭКГ</li>
+                                <li><i class="bi bi-check-circle"></i> Кибермилланты Премиум</li>
+                                <li><i class="bi bi-check-circle"></i> Сканирование киберлипидов</li>
+                                <li><i class="bi bi-check-circle"></i> Киберрентген грудной клетки</li>
+                                <li><i class="bi bi-check-circle"></i> Киберсахар в крови</li>
+                                <li><i class="bi bi-check-circle"></i> Основной пакет киберзасровья</li>
+                                <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
+                                <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
+                            </ul>
+                            <button class="btn btn-package">Забронировать</button>
+                        </div>
+                    </div>
+
+                    <!-- Exclusive Package -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="health-package exclusive-package">
+                            <div class="package-header">
+                                <h3>Эксклюз благополучие</h3>
+                                <div class="price">$10000</div>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="bi bi-check-circle"></i> Кибер-диагностика и анализ</li>
+                                <li><i class="bi bi-check-circle"></i> КиберЭКГ</li>
+                                <li><i class="bi bi-check-circle"></i> Кибермилланты Премиум</li>
+                                <li><i class="bi bi-check-circle"></i> Сканирование киберлипидов</li>
+                                <li><i class="bi bi-check-circle"></i> Киберрентген грудной клетки</li>
+                                <li><i class="bi bi-check-circle"></i> Киберсахар в крови</li>
+                                <li><i class="bi bi-check-circle"></i> Основной пакет киберзасровья</li>
+                                <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
+                                <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
+                            </ul>
+                            <button class="btn btn-package">Забронировать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

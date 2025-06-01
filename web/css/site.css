@@ -88,3 +88,540 @@ a.desc:after {
 .form-group {
     margin-bottom: 1rem;
 }
+/* Base styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styles */
+.cyber-header {
+    background-color: #1a1a2e;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand .logo-highlight {
+    color: #00ffff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00ffff !important;
+}
+
+/* Hero section */
+.hero-section {
+    border-radius: 3rem;
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+    color: white;
+}
+
+.hero-section h1 {
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .btn-primary {
+    background-color: #00ffff;
+    border-color: #00ffff;
+    color: #1a1a2e;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.hero-section .btn-primary:hover {
+    background-color: transparent;
+    color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* About section */
+.about-section {
+    padding: 5rem 0;
+}
+
+.section-title {
+    color: #1a1a2e;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #00ffff;
+}
+
+.section-text {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Services section */
+.service-icon {
+    font-size: 2.5rem;
+    color: #00ffff;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* CTA section */
+.cta-section {
+    background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)), url('https://via.placeholder.com/1920x600/2a2a40/ffffff?text=Кибермедицина');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 5rem 0;
+}
+
+.cta-section .btn-outline-light {
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-section .btn-outline-light:hover {
+    background-color: #00ffff;
+    color: #1a1a2e;
+}
+
+/* Footer */
+.footer {
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+.footer-logo {
+    color: #00ffff;
+    font-weight: 700;
+}
+
+.footer a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 3rem 0;
+    }
+    
+    .hero-section .btn {
+        margin-bottom: 2rem;
+    }
+}
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+/* Navigation */
+.cyber-nav {
+    background-color: #1a1a2e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-highlight {
+    color: #00ffff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00ffff !important;
+}
+
+.nav-link.active {
+    color: #00ffff !important;
+    border-bottom: 2px solid #00ffff;
+}
+
+/* Hero Section */
+.specializations-hero {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+    color: white;
+    border-radius: 3rem;
+}
+
+.specializations-hero h1 {
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.specializations-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Specializations Grid */
+.specialization-card {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.specialization-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 255, 255, 0.3);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #00ffff;
+    margin-bottom: 1.5rem;
+}
+
+.specialization-card h3 {
+    color: #1a1a2e;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.specialization-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* CTA Section */
+.cyber-cta {
+    background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)), url('https://via.placeholder.com/1920x600/2a2a40/ffffff?text=Кибермедицина');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin-top: 3rem;
+}
+
+.cyber-cta h2 {
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cyber-cta .btn-primary {
+    background-color: #00ffff;
+    border-color: #00ffff;
+    color: #1a1a2e;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.cyber-cta .btn-primary:hover {
+    background-color: transparent;
+    color: #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Footer */
+.cyber-footer {
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+.footer-logo {
+    color: #00ffff;
+    font-weight: 700;
+}
+
+.cyber-footer a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cyber-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .specializations-hero {
+        padding: 3rem 0;
+    }
+    
+    .specializations-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .specialization-card {
+        padding: 1.5rem;
+    }
+}
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+}
+
+/* Navigation */
+.cyber-nav {
+    background-color: #1a1a2e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo-highlight {
+    color: #00ffff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00ffff !important;
+}
+
+.nav-link.active {
+    color: #00ffff !important;
+    border-bottom: 2px solid #00ffff;
+}
+
+/* Hero Section */
+.packages-hero {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+    color: white;
+    border-radius: 3rem;
+}
+
+.packages-hero h1 {
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.packages-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Packages Grid */
+.health-package {
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.health-package:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.package-header {
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.basic-package .package-header {
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+}
+
+.gold-package .package-header {
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+}
+
+.premium-package .package-header {
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+}
+
+.exclusive-package .package-header {
+    background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+}
+
+.health-package h3 {
+    color: #cacaca;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #b7bb20;
+    margin: 0.5rem 0;
+}
+
+.package-features {
+    padding: 1.5rem;
+    flex-grow: 1;
+    margin: 0;
+}
+
+.package-features li {
+    list-style: none;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #eee;
+    display: flex;
+    align-items: center;
+}
+
+.package-features li:last-child {
+    border-bottom: none;
+}
+
+.package-features i {
+    margin-right: 0.5rem;
+    color: #00a8cc;
+    font-size: 1.1rem;
+}
+
+.btn-package {
+    background-color: #1a1a2e;
+    border-color: #00ffff;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    width: 100%;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.btn-package:hover {
+    background-color: #1a1a2e;
+    color: #00ffff;
+}
+.shadow31{
+    box-shadow: 0 0.5rem 5rem rgb(0, 36, 102) !important;
+}
+
+/* Comparison Section */
+.comparison-section {
+    background-color: #f8f9fa;
+}
+
+.table {
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: #1a1a2e;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Footer */
+.cyber-footer {
+    background-color: #1a1a2e;
+    color: #fff;
+}
+
+.footer-logo {
+    color: #00ffff;
+    font-weight: 700;
+}
+
+.cyber-footer a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cyber-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .health-package {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .packages-hero {
+        padding: 3rem 0;
+    }
+    
+    .packages-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .price {
+        font-size: 1.5rem;
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+    }
+}

@@ -12,8 +12,11 @@ use yii\widgets\ListView;
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Orders';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
+<head>
+
+<link rel="stylesheet" href="/web/css/admin.css">
+</head>
 <div class="order-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -23,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= ListView::widget([
     'dataProvider' => $dataProvider,
     'itemView' => '_card_admin',
+    'summary' => '',
 ]) ?>
 
 

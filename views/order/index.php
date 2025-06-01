@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= ListView::widget([
     'dataProvider' => $dataProvider,
     'itemView' => '_card_user',
+    'summary' => '',
 ]); ?>
 
 

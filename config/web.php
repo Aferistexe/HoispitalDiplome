@@ -49,6 +49,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'contact/toggle-completed' => 'contact/toggle-completed',
+                'admin/confirm-action' => 'contact/admin-confirm',
             ],
         ],
 

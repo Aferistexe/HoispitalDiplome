@@ -35,27 +35,25 @@ body {
 }
 
 /* Hero Section */
-.news-hero {
+.products-hero {
     padding: 5rem 0;
     background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
     color: white;
-
     border-radius: 3rem;
 }
 
-.news-hero h1 {
+.products-hero h1 {
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
 }
 
-.news-hero p {
+.products-hero p {
     font-size: 1.25rem;
     opacity: 0.9;
 }
 
-/* News Grid */
-.news-card {
+/* Products Grid */
+.product-card {
     background: white;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -66,139 +64,92 @@ body {
     flex-direction: column;
 }
 
-.news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.news-image {
-    position: relative;
+.product-image {
     height: 200px;
     overflow: hidden;
 }
 
-.news-image img {
+.product-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
 
-.news-card:hover .news-image img {
+.product-card:hover .product-image img {
     transform: scale(1.05);
 }
 
-.news-date {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(0, 168, 204, 0.9);
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-
-.news-body {
+.product-body {
     padding: 1.5rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.news-title {
+.product-title {
     color: #1a1a2e;
     font-size: 1.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     font-weight: 600;
 }
 
-.news-text {
+.product-description {
     color: #666;
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
     flex-grow: 1;
 }
 
-.btn-read-more {
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #00a8cc;
-    font-weight: 600;
-    padding: 0.5rem 0;
-    transition: all 0.3s ease;
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
+    margin: 0.5rem 0 1rem;
 }
 
-.btn-read-more:hover {
-    color: #1a1a2e;
-}
-
-.btn-read-more i {
-    margin-left: 0.5rem;
-    transition: transform 0.3s ease;
-}
-
-.btn-read-more:hover i {
-    transform: translateX(3px);
-}
-
-/* Pagination */
-.pagination .page-item.active .page-link {
+.btn-product {
     background-color: #1a1a2e;
-    border-color: #1a1a2e;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    width: 100%;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 0.25rem;
+}
+
+.btn-product:hover {
+    background-color: #00a8cc;
     color: white;
 }
 
-.pagination .page-link {
-    color: #1a1a2e;
-    margin: 0 0.25rem;
-    border-radius: 0.25rem;
-    transition: all 0.3s ease;
-}
-
-.pagination .page-link:hover {
-    background-color: #f0f0f0;
-    color: #1a1a2e;
-}
-
-/* Newsletter Section */
-.newsletter-section {
+/* Features Section */
+.features-section {
     background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)), url('https://via.placeholder.com/1920x600/2a2a40/ffffff?text=Кибермедицина');
     background-size: cover;
     background-position: center;
 }
 
-.newsletter-section h3 {
-    font-weight: 600;
-    margin-bottom: 1rem;
+.feature-icon {
+    font-size: 2.5rem;
+    color: #00ffff;
 }
 
-.newsletter-section p {
+.features-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.features-section p {
     opacity: 0.9;
     font-size: 0.95rem;
-}
-
-.newsletter-form .form-control {
-    height: 50px;
-    border: none;
-    padding: 0 1rem;
-}
-
-.newsletter-form .btn-primary {
-    background-color: #00ffff;
-    border-color: #00ffff;
-    color: #1a1a2e;
-    font-weight: 600;
-    padding: 0 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.newsletter-form .btn-primary:hover {
-    background-color: transparent;
-    color: #00ffff;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 /* Footer */
@@ -225,28 +176,15 @@ body {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .news-hero {
+    .products-hero {
         padding: 3rem 0;
     }
     
-    .news-hero h1 {
+    .products-hero h1 {
         font-size: 2rem;
     }
     
-    .news-image {
-        height: 180px;
-    }
-    
-    .newsletter-section .col-lg-6 {
-        text-align: center;
-    }
-    
-    .newsletter-form .input-group {
-        flex-direction: column;
-    }
-    
-    .newsletter-form .btn-primary {
-        margin-top: 0.5rem;
-        width: 100%;
+    .product-price {
+        font-size: 1.25rem;
     }
 }
