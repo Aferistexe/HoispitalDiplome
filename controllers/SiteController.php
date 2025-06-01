@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Contact;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,6 +10,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Role;
 
 class SiteController extends Controller
 {
@@ -75,7 +77,30 @@ class SiteController extends Controller
     {
         return $this->render('news');
     }
-    
+    public function actionContacs()
+    {
+        $model = new Contact();
+
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->validate()) {
+                $model -> generateAuthKey();
+                $model -> generatePassword($model->password);
+                $model->role_id = Role::$NEW_USER;
+                
+                
+                $model->save();
+
+                return $this->redirect(['login']);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+
+        return $this->render('register', [
+            'model' => $model,
+        ]);
+    }
+
 
 
     /**

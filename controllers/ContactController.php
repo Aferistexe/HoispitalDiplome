@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Contact;
 use app\models\ContactSearch;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,14 +13,36 @@ use yii\filters\AccessControl;
 
 class ContactController extends Controller
 {
-
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                    'toggle-completed' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'], // Только для авторизованных
+                    ],
+                ],
+            ],
+        ];
+    }
 
     public function actionIndex()
     {
         $searchModel = new ContactSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
-        $dataProvider->pagination = ['pageSize' => 8];
+        $dataProvider->pagination = [
+            'pageSize' => 8,
+        ];
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -27,20 +50,12 @@ class ContactController extends Controller
         ]);
     }
 
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
     public function actionCreate()
     {
         $model = new Contact();
-        $model->created_at = time();
 
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
+            if ($model->validate() && $model->save()) {
                 Yii::$app->session->setFlash('success', "В скором времени с вами свяжутся");
                 return $this->redirect(['site/index']);
             }
@@ -53,26 +68,7 @@ class ContactController extends Controller
         ]);
     }
 
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-        return $this->redirect(['index']);
-    }
-
-    public function actionToggleStatus()
+    public function actionToggleCompleted()
     {
         if (!Yii::$app->request->isAjax) {
             throw new \yii\web\BadRequestHttpException('Only AJAX requests allowed');
@@ -81,16 +77,15 @@ class ContactController extends Controller
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         
         $id = Yii::$app->request->post('id');
-        $model = $this->findModel($id);
+        $isCompleted = (int)Yii::$app->request->post('is_completed', 0);
         
-        // Переключаем is_completed
-        $model->is_completed = $model->is_completed ? 0 : 1;
+        $model = $this->findModel($id);
+        $model->is_completed = $isCompleted;
         
         if ($model->save(false)) {
             return [
                 'success' => true,
-                'is_completed' => (bool)$model->is_completed,
-                'statusText' => $model->is_completed ? 'Выполнено' : 'Не выполнено'
+                'completed' => (bool)$model->is_completed
             ];
         }
         
@@ -102,31 +97,10 @@ class ContactController extends Controller
 
     protected function findModel($id)
     {
-        if (($model = Contact::findOne($id)) !== null) {
+        if ($model = Contact::findOne($id)) {
             return $model;
         }
 
         throw new NotFoundHttpException('Запрашиваемая страница не существует.');
     }
-    public function actionAdminConfirm()
-{
-    if (!Yii::$app->request->isPost) {
-        throw new \yii\web\BadRequestHttpException('Only POST allowed');
-    }
-
-    $id = Yii::$app->request->post('id');
-    $model = $this->findModel($id);
-    
-    // Здесь ваша логика подтверждения
-    $model->status = 2; // Например, отмечаем как завершённое
-    $model->is_completed = 1;
-    
-    if ($model->save()) {
-        Yii::$app->session->setFlash('success', 'Действие подтверждено');
-    } else {
-        Yii::$app->session->setFlash('error', 'Ошибка подтверждения');
-    }
-
-    return $this->redirect(['view', 'id' => $model->id]);
-}
 }
