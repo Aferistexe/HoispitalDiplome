@@ -10,25 +10,24 @@ use yii\widgets\ListView;
 /** @var yii\web\View $this */
 /** @var app\models\OrderSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
+$this->registerCssFile('@web/css/order_index.css');
 
-$this->title = 'Orders';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Заказы';
 ?>
 <div class="order-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать заказ', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= ListView::widget([
-    'dataProvider' => $dataProvider,
-    'itemView' => '_card_user',
-    'summary' => '',
-]); ?>
-
+        'dataProvider' => $dataProvider,
+        'itemView' => '_card_user', // тут должен быть шаблон для каждого заказа
+        'summary' => '',
+    ]); ?>
 
 </div>

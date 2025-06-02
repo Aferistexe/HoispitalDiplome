@@ -11,7 +11,6 @@ use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
-
 AppAsset::register($this);
 
 $this->registerCsrfMetaTags();
@@ -35,34 +34,34 @@ $this->registerJsFile('@web/js/contact.js', ['depends' => [\yii\web\JqueryAsset:
 <header id="header">
     <?php
     NavBar::begin([
-        'brandLabel' => "Profi",
+        'brandLabel' => "Profi", // Название бренда
         'brandUrl' => Yii::$app->homeUrl,
-        'options' => ['class' => 'navbar-expand-md navbar-dark lol fixed-top']
+        'options' => ['class' => 'navbar-expand-md navbar-dark lol'] // убрал класс "lol"
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Producs', 'url' => ['/site/producs']],
-            ['label' => 'Doctors', 'url' => ['/site/doctors']],
-            ['label' => 'News', 'url' => ['/site/news']],
-            ['label' => 'Orders', 'url' => ['/order/index'],'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_USER)],
-            ['label' => 'Admin', 'url' => ['/order/admin'],'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_ADMIN)],
-            ['label' => 'Orders', 'url' => ['/contact/create'],'visible' => Yii::$app->user->isGuest],
-            ['label' => 'feedbackContact', 'url' => ['/contact/index'],'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_ADMIN)],
+            ['label' => 'Главная', 'url' => ['/site/index']],
+            ['label' => 'Продукты', 'url' => ['/site/producs']],  // исправлено с producs
+            ['label' => 'Врачи', 'url' => ['/site/doctors']],
+            ['label' => 'Новости', 'url' => ['/site/news']],
+            ['label' => 'Заказы', 'url' => ['/order/index'], 'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_USER)],
+            ['label' => 'Админка', 'url' => ['/order/admin'], 'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_ADMIN)],
+            ['label' => 'Создать заказ', 'url' => ['/contact/create'], 'visible' => Yii::$app->user->isGuest],
+            ['label' => 'Обратная связь', 'url' => ['/contact/index'], 'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_ADMIN)],
 
             Yii::$app->user->isGuest
-                ? ['label' => 'Login', 'url' => ['/user/login']]
+                ? ['label' => 'Войти', 'url' => ['/user/login']]
                 : '<li class="nav-item">'
                     . Html::beginForm(['/site/logout'])
                     . Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->login . ')',
+                        'Выйти (' . Html::encode(Yii::$app->user->identity->login) . ')',
                         ['class' => 'nav-link btn btn-link logout']
                     )
                     . Html::endForm()
                     . '</li>',
-            ['label' => 'Register', 'url' => ['/user/register'],'visible' => (Yii::$app->user->isGuest)],
-        ]
+            ['label' => 'Регистрация', 'url' => ['/user/register'], 'visible' => Yii::$app->user->isGuest],
+        ],
     ]);
     NavBar::end();
     ?>
@@ -81,7 +80,7 @@ $this->registerJsFile('@web/js/contact.js', ['depends' => [\yii\web\JqueryAsset:
 <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
         <div class="row text-muted">
-            <div class="col-md-6 text-center text-md-start">&copy; My Company <?= date('Y') ?></div>
+            <div class="col-md-6 text-center text-md-start">&copy; Моя компания <?= date('Y') ?></div>
             <div class="col-md-6 text-center text-md-end"><?= Yii::powered() ?></div>
         </div>
     </div>

@@ -36,7 +36,7 @@
                                 <h3 class="ripper-name">Виктор</h3>
                                 <div class="ripper-title">Рипер</div>
                                 <p class="ripper-description">Рипер, к которому идут за хорошим хромом. Забудьте о клиниках, в которых повсюду сверкают логотипы корпораций, а приёмная напоминает гибрид комнаты отдыха и космического корабля. У Виктора всё просто, зато тем, кто прилично себя ведёт, порой предлагают пива вместе с обезболивающим.</p>
-                                <button class="btn btn-ripper">Записаться</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                 <h3 class="ripper-name">Алиса</h3>
                                 <div class="ripper-title">Рипер</div>
                                 <p class="ripper-description">Алиса — опытный специалист в области кибермиллантации с более чем 10-летним стажем. Она разрабатывает и устанавливает импланты, а также занимается созданием новых технологий для нейромитерфейсов, помогая пациентам восстанавливать функции и улучшать физические способности.</p>
-                                <button class="btn btn-ripper">Записаться</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                 <h3 class="ripper-name">Милт Науман</h3>
                                 <div class="ripper-title">Рипер</div>
                                 <p class="ripper-description">Милт Науман — один из самых известных риперов в своем деле, регулярно проводил осмотры и операции для легенды Джонни Сильверхенда. Обладая уникальными знаниями и опытом в области кибермиллантации, он всегда применял самые передовые технологии для своих пациентов.</p>
-                                <button class="btn btn-ripper">Записаться</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                                 <h3 class="ripper-name">Рафаэль Перес</h3>
                                 <div class="ripper-title">Рипер</div>
                                 <p class="ripper-description">Рафаэль Перес — опытный рипер, который в течение десяти лет работал в лаборатории корпорации «Мур технолоджик». За это время он стал экспертом в области кибермиллантации, развивая и внедряя новейшие технологии, что сделало его одним из самых востребованных специалистов в своей сфере.</p>
-                                <button class="btn btn-ripper">Записаться</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>

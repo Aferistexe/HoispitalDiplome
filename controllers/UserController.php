@@ -20,7 +20,7 @@ class UserController extends Controller
                 $model->generatePassword($model->password);
                 $model->role_id = Role::$NEW_USER;
 
-                if ($model->save()) {
+                if ($model->save(false)) {
                     return $this->redirect(['login']);
                 } else {
                     // Для отладки ошибок сохранения:

@@ -52,7 +52,7 @@ body {
     opacity: 0.9;
 }
 
-/* Products Grid */
+/* Product Cards */
 .product-card {
     background: white;
     border-radius: 0.5rem;
@@ -131,7 +131,8 @@ body {
 
 /* Features Section */
 .features-section {
-    background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)), url('https://via.placeholder.com/1920x600/2a2a40/ffffff?text=Кибермедицина');
+    background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)), 
+                url('https://via.placeholder.com/1920x600/2a2a40/ffffff?text=Кибермедицина');
     background-size: cover;
     background-position: center;
 }

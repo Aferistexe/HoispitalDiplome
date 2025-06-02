@@ -1,0 +1,131 @@
+/* Основные стили страницы */
+.order-update {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.order-update h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.order-update h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    border-radius: 2px;
+}
+
+/* Стили формы */
+.order-form {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.order-form:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Поле текста */
+.field-order-feedback {
+    margin-bottom: 2rem;
+}
+
+.field-order-feedback label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: #495057;
+    font-size: 1.05rem;
+}
+
+.field-order-feedback textarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    resize: vertical;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+.field-order-feedback textarea:focus {
+    border-color: #4b6cb7;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
+}
+
+/* Кнопка */
+.btn-success {
+    background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
+    border: none;
+    color: white;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #3a56a0 0%, #121f3d 100%);
+}
+
+.btn-success:active {
+    transform: translateY(0);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.order-form {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .order-update {
+        padding: 0 0.5rem;
+        margin: 1rem auto;
+    }
+    
+    .order-form {
+        padding: 1.5rem;
+    }
+    
+    .order-update h1 {
+        font-size: 1.5rem;
+    }
+    
+    .field-order-feedback textarea {
+        min-height: 150px;
+    }
+}

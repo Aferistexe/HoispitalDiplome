@@ -28,18 +28,31 @@ class Contact extends ActiveRecord
             ],
         ];
     }
-
     public function rules()
     {
         return [
+            // Обязательные поля
             [['name', 'phone', 'email', 'message'], 'required'],
+    
+            // Типы данных
             [['message'], 'string'],
             [['status'], 'integer'],
             [['is_completed'], 'boolean'],
+    
+            // Длина строк
             [['name', 'phone', 'email', 'ip_address'], 'string', 'max' => 255],
+    
+            // Валидация email
             ['email', 'email'],
+    
+            // Паттерн: имя — буквы, пробелы, дефисы
+            ['name', 'match', 'pattern' => '/^[А-Яа-яЁёA-Za-z\s\-]+$/u', 'message' => 'Имя может содержать только буквы, пробелы и дефисы'],
+    
+            // Паттерн: телефон — формат +7 (999) 123-45-67
+            ['phone', 'match', 'pattern' => '/^\+7\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}$/', 'message' => 'Введите номер в формате: +7 (XXX) XXX-XX-XX'],
         ];
     }
+    
 
     public function attributeLabels()
     {

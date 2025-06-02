@@ -11,11 +11,10 @@ use yii\widgets\ListView;
 /** @var app\models\OrderSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Orders';
+$this->title = 'Заказы';
 ?>
 <head>
-
-<link rel="stylesheet" href="/web/css/admin.css">
+    <link rel="stylesheet" href="/web/css/admin.css">
 </head>
 <div class="order-index">
 
@@ -24,10 +23,9 @@ $this->title = 'Orders';
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= ListView::widget([
-    'dataProvider' => $dataProvider,
-    'itemView' => '_card_admin',
-    'summary' => '',
-]) ?>
-
+        'dataProvider' => $dataProvider,
+        'itemView' => '_card_admin',  // Здесь должен быть твой шаблон для отображения каждого заказа в админке
+        'summary' => '',
+    ]) ?>
 
 </div>

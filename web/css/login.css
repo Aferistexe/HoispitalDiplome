@@ -1,0 +1,148 @@
+/* Основные стили */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.login-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.login-title {
+    color: #2c3e50;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.login-subtitle {
+    color: #7f8c8d;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+/* Стили формы */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s;
+    background-color: #f8f9fa;
+}
+
+.form-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+    background-color: white;
+}
+
+/* Чекбокс "Запомнить меня" */
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.remember-me .form-input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.remember-label {
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* Кнопка входа */
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Сообщения об ошибках */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 6px;
+    display: block;
+}
+
+/* Текст внизу формы */
+.login-note {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    color: #7f8c8d;
+    font-size: 14px;
+    text-align: center;
+}
+
+.login-note strong {
+    color: #2c3e50;
+}
+
+/* Анимация */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 30px 20px;
+    }
+    
+    .login-title {
+        font-size: 24px;
+    }
+}

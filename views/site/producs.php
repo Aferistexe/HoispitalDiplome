@@ -36,7 +36,7 @@
                                 <h3 class="product-title">Полимерный скелет</h3>
                                 <p class="product-description">Новый полимерный скелет, созданный для улучшения человеческой силы и мобильности.</p>
                                 <div class="product-price">$100.00</div>
-                                <button class="btn btn-product">Купить</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                                 <h3 class="product-title">Бионические каркасы</h3>
                                 <p class="product-description">Бионические каркасы обеспечивают улучшенную подвижность и поддержку при любых физических нагрузках.</p>
                                 <div class="product-price">$150.00</div>
-                                <button class="btn btn-product">Купить</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                 <h3 class="product-title">Бионический порт</h3>
                                 <p class="product-description">Бионический порт для мгновенного подключения к цифровым системам.</p>
                                 <div class="product-price">$200.00</div>
-                                <button class="btn btn-product">Купить</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                                 <h3 class="product-title">Бионические протезы</h3>
                                 <p class="product-description">Эти бионические протезы обеспечивают полную свободу действий и функциональность.</p>
                                 <div class="product-price">$120.00</div>
-                                <button class="btn btn-product">Купить</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                                 <h3 class="product-title">Синтолетие</h3>
                                 <p class="product-description">Синтолетие с улучшенной газообменной функцией, обеспечивающие оптимальный уровень кислорода в крови.</p>
                                 <div class="product-price">$180.00</div>
-                                <button class="btn btn-product">Купить</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@
                                 <h3 class="product-title">Клинки-богомол</h3>
                                 <p class="product-description">Эти боевые клинки имеют уникальный дизайн, вдохновленный природой.</p>
                                 <div class="product-price">$220.00</div>
-                                <button class="btn btn-product">Купить</button>
+                                <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                             </div>
                         </div>
                     </div>

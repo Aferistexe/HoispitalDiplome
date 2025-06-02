@@ -91,14 +91,6 @@ $csrfToken = Yii::$app->request->csrfToken;
                 </div>
             </div>
 
-            <?php if (!empty($model->ip_address)): ?>
-                <div class="row">
-                    <div class="col-md-3 fw-bold">IP адрес:</div>
-                    <div class="col-md-9 text-muted">
-                        <?= Html::encode($model->ip_address) ?>
-                    </div>
-                </div>
-            <?php endif; ?>
         </div>
     </div>
 

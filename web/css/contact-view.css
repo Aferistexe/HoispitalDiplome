@@ -88,3 +88,215 @@
     color: #5cb85c; /* зеленый для активного статуса */
     font-weight: bold;
 }
+/* Основные стили для страницы просмотра контакта */
+.contact-view {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contact-view h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Стили для карточки с информацией */
+.card {
+    border-radius: 10px;
+    border: none;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+/* Стили для таблицы */
+.table.detail-view {
+    margin-bottom: 0;
+}
+
+.table.detail-view tr:last-child td {
+    border-bottom: none;
+}
+
+.table.detail-view th {
+    width: 30%;
+    color: #6c757d;
+    font-weight: 500;
+    background-color: #f8f9fa;
+}
+
+/* Стили для статусов */
+.status-new {
+    background-color: rgba(108, 117, 125, 0.1);
+}
+
+.status-completed {
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+.status-in-progress {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+/* Стили для сообщения */
+.message-content {
+    white-space: pre-wrap;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #0d6efd;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .contact-view {
+        padding: 15px;
+    }
+    
+    .card-body {
+        padding: 20px;
+    }
+    
+    .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .btn-group {
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+/* Основные стили для карточки */
+.card {
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* Стили для таблицы DetailView */
+.table.detail-view {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+
+.table.detail-view tr {
+    background-color: #fff;
+}
+
+.table.detail-view tr:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.table.detail-view th,
+.table.detail-view td {
+    padding: 16px 20px;
+    vertical-align: top;
+    border: none;
+}
+
+.table.detail-view th {
+    width: 25%;
+    color: #5f6368;
+    font-weight: 500;
+    background-color: #f8f9fa;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.table.detail-view td {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Стили для состояний */
+.status-new {
+    background-color: rgba(108, 117, 125, 0.08);
+}
+
+.status-completed {
+    background-color: rgba(25, 135, 84, 0.08);
+}
+
+.status-in-progress {
+    background-color: rgba(13, 110, 253, 0.08);
+}
+
+/* Стили для сообщения */
+.message-content {
+    white-space: pre-wrap;
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid #0d6efd;
+    line-height: 1.6;
+}
+
+/* Стили для badge статусов */
+.badge {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .table.detail-view th,
+    .table.detail-view td {
+        padding: 12px 15px;
+        display: block;
+        width: 100%;
+    }
+    
+    .table.detail-view th {
+        border-radius: 8px 8px 0 0;
+        border-bottom: none;
+    }
+    
+    .table.detail-view td {
+        border-radius: 0 0 8px 8px;
+        box-shadow: none;
+    }
+    
+    .table.detail-view tr:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+/* Анимация при загрузке */
+
+
+.table.detail-view tr {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.table.detail-view tr:nth-child(1) { animation-delay: 0.1s; }
+.table.detail-view tr:nth-child(2) { animation-delay: 0.2s; }
+.table.detail-view tr:nth-child(3) { animation-delay: 0.3s; }
+.table.detail-view tr:nth-child(4) { animation-delay: 0.4s; }
+.table.detail-view tr:nth-child(5) { animation-delay: 0.5s; }

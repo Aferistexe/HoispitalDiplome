@@ -153,7 +153,7 @@ $this->title = 'Главная страница';
                                 <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
                                 <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
                             </ul>
-                            <button class="btn btn-package">Забронировать</button>
+                            <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                         </div>
                     </div>
 
@@ -175,7 +175,7 @@ $this->title = 'Главная страница';
                                 <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
                                 <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
                             </ul>
-                            <button class="btn btn-package">Забронировать</button>
+                            <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                         </div>
                     </div>
 
@@ -197,7 +197,7 @@ $this->title = 'Главная страница';
                                 <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
                                 <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
                             </ul>
-                            <button class="btn btn-package">Забронировать</button>
+                            <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                         </div>
                     </div>
 
@@ -219,7 +219,7 @@ $this->title = 'Главная страница';
                                 <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
                                 <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
                             </ul>
-                            <button class="btn btn-package">Забронировать</button>
+                            <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                         </div>
                     </div>
                 </div>

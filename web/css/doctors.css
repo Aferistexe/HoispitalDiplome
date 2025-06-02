@@ -53,7 +53,7 @@ body {
     opacity: 0.9;
 }
 
-/* Rippers Grid */
+/* Rippers Cards */
 .ripper-card {
     background: white;
     border-radius: 0.5rem;
@@ -134,7 +134,8 @@ body {
 
 /* CTA Section */
 .rippers-cta {
-    background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)), url('https://via.placeholder.com/1920x600/2a2a40/ffffff?text=Кибермодификации');
+    background: linear-gradient(rgba(26, 26, 46, 0.95), rgba(26, 26, 46, 0.95)), 
+                url('https://via.placeholder.com/1920x600/2a2a40/ffffff?text=Кибермодификации');
     background-size: cover;
     background-position: center;
 }
