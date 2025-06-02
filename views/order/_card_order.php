@@ -25,7 +25,6 @@ $this->registerCssFile('@web/css/admin_orders.css', [
     <p class="card-text">Тип устройства: <?= Html::encode($model->deviceType->title) ?></p>
     <p class="card-text">Врач: <?= Html::encode($model->doctor ? $model->doctor->first_name : 'Не назначен') ?></p>
     
-    <!-- Медицинские поля из SQL -->
     <p class="card-text">Страховой полис: <?= Html::encode($model->insurance_policy) ?></p>
     <p class="card-text">Номер мед. карты: <?= Html::encode($model->medical_record_number) ?></p>
     <p class="card-text">Паспорт: серия <?= Html::encode($model->passport_series) ?> номер <?= Html::encode($model->passport_number) ?></p>
@@ -34,7 +33,6 @@ $this->registerCssFile('@web/css/admin_orders.css', [
     <p class="card-text">Дата и время записи: <?= Html::encode($model->appointment_date . ' ' . $model->appointment_time) ?></p>
     <p class="card-text">Статус: <?= Html::encode($model->status->title) ?></p>
     <p class="card-text">Отзыв: <?= Html::encode($model->feedback) ?></p>
-        <!-- Кнопка завершения -->
         <?php
         $isMyOrder = $model->doctor_id == Yii::$app->user->identity->doctor->id ?? null;
         if ($isMyOrder && !$model->is_completed): ?>

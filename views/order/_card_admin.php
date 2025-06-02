@@ -19,7 +19,6 @@ $this->registerCssFile('@web/css/doctor_orders.css', [
     <p class="card-text">Тип устройства: <?= Html::encode($model->deviceType->title) ?></p>
     <p class="card-text">Врач: <?= Html::encode($model->doctor ? $model->doctor->first_name : 'Не назначен') ?></p>
     
-    <!-- Медицинские поля из SQL -->
     <p class="card-text">Страховой полис: <?= Html::encode($model->insurance_policy) ?></p>
     <p class="card-text">Номер мед. карты: <?= Html::encode($model->medical_record_number) ?></p>
     <p class="card-text">Паспорт: серия <?= Html::encode($model->passport_series) ?> номер <?= Html::encode($model->passport_number) ?></p>

@@ -18,7 +18,7 @@ $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
 $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1, shrink-to-fit=no']);
 $this->registerMetaTag(['name' => 'description', 'content' => $this->params['meta_description'] ?? '']);
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
-$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.ico')]);
+$this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.jpg')]);
 $this->registerJsFile('@web/js/contact.js', ['depends' => [\yii\web\JqueryAsset::class]]);
 ?>
 <?php $this->beginPage() ?>
@@ -34,20 +34,20 @@ $this->registerJsFile('@web/js/contact.js', ['depends' => [\yii\web\JqueryAsset:
 <header id="header">
     <?php
     NavBar::begin([
-        'brandLabel' => "Profi", // Название бренда
+        'brandLabel' => "Помощь.есть",
         'brandUrl' => Yii::$app->homeUrl,
-        'options' => ['class' => 'navbar-expand-md navbar-dark lol'] // убрал класс "lol"
+        'options' => ['class' => 'navbar-expand-md navbar-dark lol']
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'Товары', 'url' => ['/site/producs']],  // исправлено с producs
+            ['label' => 'Товары', 'url' => ['/site/producs']],  
             ['label' => 'Врачи', 'url' => ['/site/doctors']],
             ['label' => 'Новости', 'url' => ['/site/news']],
             ['label' => 'Заказы', 'url' => ['/order/index'], 'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_USER)],
             ['label' => 'Админка', 'url' => ['/order/admin'], 'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_ADMIN)],
-            ['label' => 'Создать заказ', 'url' => ['/contact/create'], 'visible' => Yii::$app->user->isGuest],
+            ['label' => 'Обратная связь', 'url' => ['/contact/create'], 'visible' => Yii::$app->user->isGuest],
             ['label' => 'Админка обратная связь', 'url' => ['/contact/index'], 'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == Role::$NEW_ADMIN)],
             ['label' => 'Мои назначения', 'url' => ['/order/doctor'], 'visible' => (!Yii::$app->user->isGuest && Yii::$app->user->identity->role_id == 3)],
 
@@ -81,8 +81,8 @@ $this->registerJsFile('@web/js/contact.js', ['depends' => [\yii\web\JqueryAsset:
 <footer id="footer">
     <div class="footer-container container">
         <div class="footer-logo-description">
-            <span class="logo">Profi</span>
-            <p>Profi — ведущая компания в области профессиональных медицинских услуг и продуктов.</p>
+            <span class="logo">Помощь.есть</span>
+            <p>Помощь.есть — ведущая компания в области профессиональных медицинских услуг .</p>
         </div>
         <div class="footer-about-us">
             <h4>О компании</h4>
@@ -102,7 +102,7 @@ $this->registerJsFile('@web/js/contact.js', ['depends' => [\yii\web\JqueryAsset:
     </div>
     <hr class="footer-divider" />
     <div class="footer-rights">
-        &copy; Моя компания <?= date('Y') ?> — Все права защищены  
+        &copy; Помощь.есть <?= date('Y') ?> — Все права защищены  
     </div>
 </footer>
 

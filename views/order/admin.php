@@ -30,7 +30,7 @@ $this->title = 'Заказы';
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'itemView' => '_card_admin',  // Здесь должен быть твой шаблон для отображения каждого заказа в админке
+        'itemView' => '_card_admin',  
         'summary' => '',
     ]) ?>
 
