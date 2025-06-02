@@ -1,150 +1,131 @@
-/* Main container */
+/* Контейнер всей формы */
 .user-create-container {
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a1a, #141428);
     padding: 20px;
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 }
 
-/* Form card */
+/* Карточка формы */
 .user-form-card {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    padding: 40px;
+    background: rgba(20, 20, 40, 0.85);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    padding: 40px 30px;
     width: 100%;
-    max-width: 600px;
-    animation: fadeIn 0.5s ease-out;
-}
-
-.form-title {
-    color: #2c3e50;
-    font-size: 28px;
-    margin-bottom: 30px;
+    max-width: 480px;
+    color: #e0e0ff;
     text-align: center;
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 15px;
+    transition: box-shadow 0.3s ease;
 }
 
-.form-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
-    border-radius: 2px;
+.user-form-card:hover {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
 }
 
-/* Form elements */
-.user-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* Заголовок */
+.form-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff00cc 0%, #00ffff 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Строка формы */
 .form-row {
     margin-bottom: 20px;
+    text-align: left;
 }
 
+/* Метки */
 .form-label {
+    color: #66ffffcc;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
     display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #495057;
-    font-size: 15px;
 }
 
+/* Поля ввода */
 .form-input {
     width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #e0e0e0;
+    padding: 12px 14px;
+    background: rgba(10, 10, 30, 0.9);
+    border: 1.5px solid #00ffff;
     border-radius: 8px;
-    font-size: 15px;
-    transition: all 0.3s;
-    background-color: #f8f9fa;
+    color: #e0e0ff;
+    font-size: 1rem;
+    box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.15);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: #66ffffaa;
 }
 
 .form-input:focus {
-    border-color: #4b6cb7;
-    box-shadow: 0 0 0 3px rgba(75, 108, 183, 0.2);
     outline: none;
-    background-color: white;
+    border-color: #ff00cc;
+    box-shadow: 0 0 8px #ff00cc;
+    background: rgba(20, 10, 40, 0.95);
+    color: #fff;
 }
 
-/* Password field specific */
-.field-user-password .form-input {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    padding-right: 40px;
-}
-
-/* Error messages */
+/* Ошибки */
 .form-error {
-    color: #e74c3c;
-    font-size: 14px;
-    margin-top: 6px;
-    display: block;
+    color: #ff3399;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    font-weight: 600;
 }
 
-/* Submit button */
+/* Кнопка отправки */
 .submit-button {
-    width: 100%;
-    padding: 14px;
-    background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%);
-    color: white;
+    background: linear-gradient(90deg, #00ffff, #00b3b3);
+    color: #0a0a1a;
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
+    border-radius: 10px;
+    padding: 0.6rem 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px #00ffff, 0 0 20px #ff00cc;
+    width: 100%;
     cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .submit-button:hover {
+    background: linear-gradient(90deg, #ff00cc, #cc0099);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 0, 204, 0.7);
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #3a56a0 0%, #121f3d 100%);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive design */
+/* Адаптив */
 @media (max-width: 768px) {
     .user-form-card {
         padding: 30px 20px;
     }
-    
-    .form-title {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-}
 
-@media (max-width: 480px) {
-    .user-create-container {
-        padding: 10px;
+    .form-title {
+        font-size: 1.8rem;
     }
-    
+
     .form-input {
-        padding: 10px 14px;
+        font-size: 0.9rem;
     }
-    
+
     .submit-button {
-        padding: 12px;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
     }
 }

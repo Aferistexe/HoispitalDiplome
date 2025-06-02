@@ -11,25 +11,27 @@ use Yii;
  * @property int $user_id
  * @property int $service_id
  * @property int $device_type_id
- * @property string $brand
- * @property string $model
- * @property string $year
- * @property string $serial_number
+ * @property string $insurance_policy
+ * @property string $medical_record_number
+ * @property string $passport_number
+ * @property string $passport_series
+ * @property string $birthday
  * @property int $status_id
  * @property string $appointment_date
  * @property string $appointment_time
  * @property string|null $created_at
  * @property string|null $feedback
+ * @property int|null $doctor_id
+ * @property int $is_completed
  *
  * @property DeviceType $deviceType
  * @property Service $service
  * @property Status $status
  * @property User $user
+ * @property Doctors $doctor
  */
 class Order extends \yii\db\ActiveRecord
 {
-
-  
     /**
      * {@inheritdoc}
      */
@@ -44,15 +46,17 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['feedback'], 'default', 'value' => null],
-            [['user_id', 'service_id', 'device_type_id', 'brand', 'model', 'year', 'serial_number', 'status_id', 'appointment_date', 'appointment_time'], 'required'],
-            [['user_id', 'service_id', 'device_type_id', 'status_id'], 'integer'],
-            [['year', 'appointment_date', 'appointment_time', 'created_at'], 'safe'],
+            [['user_id', 'service_id', 'device_type_id', 'insurance_policy', 
+              'medical_record_number', 'passport_number', 'passport_series',
+              'birthday', 'status_id', 'appointment_date', 'appointment_time'], 'required'],
+            [['user_id', 'service_id', 'device_type_id', 'status_id', 'doctor_id', 'is_completed'], 'integer'],
+            [['birthday', 'appointment_date', 'appointment_time', 'created_at'], 'safe'],
             [['feedback'], 'string'],
-            [['brand', 'model', 'serial_number'], 'string', 'max' => 100],
+            [['insurance_policy', 'medical_record_number', 'passport_number', 'passport_series'], 'string', 'max' => 100],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
             [['service_id'], 'exist', 'skipOnError' => true, 'targetClass' => Service::class, 'targetAttribute' => ['service_id' => 'id']],
             [['status_id'], 'exist', 'skipOnError' => true, 'targetClass' => Status::class, 'targetAttribute' => ['status_id' => 'id']],
+            [['doctor_id'], 'exist', 'skipOnError' => true, 'targetClass' => Doctors::class, 'targetAttribute' => ['doctor_id' => 'id']],
             [['device_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => DeviceType::class, 'targetAttribute' => ['device_type_id' => 'id']],
         ];
     }
@@ -67,15 +71,18 @@ class Order extends \yii\db\ActiveRecord
             'user_id' => 'User ID',
             'service_id' => 'Service ID',
             'device_type_id' => 'Device Type ID',
-            'brand' => 'Brand',
-            'model' => 'Model',
-            'year' => 'Year',
-            'serial_number' => 'Serial Number',
+            'insurance_policy' => 'Insurance Policy',
+            'medical_record_number' => 'Medical Record Number',
+            'passport_number' => 'Passport Number',
+            'passport_series' => 'Passport Series',
+            'birthday' => 'Birthday',
             'status_id' => 'Status ID',
             'appointment_date' => 'Appointment Date',
             'appointment_time' => 'Appointment Time',
             'created_at' => 'Created At',
             'feedback' => 'Feedback',
+            'doctor_id' => 'Doctor ID',
+            'is_completed' => 'Is Completed'
         ];
     }
 
@@ -100,6 +107,16 @@ class Order extends \yii\db\ActiveRecord
     }
 
     /**
+     * Gets query for [[Doctor]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDoctor()
+    {
+        return $this->hasOne(Doctors::class, ['id' => 'doctor_id']);
+    }
+
+    /**
      * Gets query for [[Status]].
      *
      * @return \yii\db\ActiveQuery
@@ -118,5 +135,4 @@ class Order extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
-
 }

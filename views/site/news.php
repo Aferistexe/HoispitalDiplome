@@ -5,6 +5,10 @@
 ?>
 
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+
 
     <link rel="stylesheet" href="/web/css/news.css">
 </head>
@@ -36,7 +40,6 @@
                             <div class="news-body">
                                 <h3 class="news-title">Первая успешная прививка киберимплантов</h3>
                                 <p class="news-text">Ученые объявили о первом успешном применении киберимплантов для создания нового поколения вакцин. Это значимое достижение может стать ключевым шагом в борьбе с различными инфекционными заболеваниями и улучшении иммунной системы человека.</p>
-                                <a href="#" class="btn btn-read-more">Читать далее <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -51,7 +54,6 @@
                             <div class="news-body">
                                 <h3 class="news-title">Прорыв в разработке бионических конечностей</h3>
                                 <p class="news-text">Команда исследователей представила новый прототип бионической конечности, которая обладает уникальной гибкостью и точностью движений. Этот прорывный протез сможет помочь миллионам людей по всему миру, лишившихся конечностей, вернуться к полноценной жизни.</p>
-                                <a href="#" class="btn btn-read-more">Читать далее <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +68,6 @@
                             <div class="news-body">
                                 <h3 class="news-title">Успешная операция по установке нейроинтерфейса в мозг пациента</h3>
                                 <p class="news-text">Ведущие хирургии биоинженеры вместе провели революционную операцию по установке нейроинтерфейса в мозг пациента. Этот важный шаг в области киберимплантации открывает новые перспективы в лечении неврологических заболеваний и восстановлении функций нервной системы.</p>
-                                <a href="#" class="btn btn-read-more">Читать далее <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>

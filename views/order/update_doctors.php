@@ -8,9 +8,13 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\Order $model */
 
-$this->registerCssFile('@web/css/order_update.css', [
-    'depends' => [\yii\bootstrap5\BootstrapAsset::class],
-]);
+// Проверка существования CSS файла перед подключением
+$cssFile = Yii::getAlias('@web/css/order_update.css');
+if (file_exists(Yii::getAlias('@webroot/css/order_update.css'))) {
+    $this->registerCssFile('@web/css/order_update.css', [
+        'depends' => [\yii\bootstrap5\BootstrapAsset::class]
+    ]);
+} 
 
 $this->title = 'Редактирование заказа: ' . $model->id;
 ?>
@@ -20,9 +24,8 @@ $this->title = 'Редактирование заказа: ' . $model->id;
 </head>
 
 
-
-<div class="order-update container py-4">
-    <h1 class="mb-4"><?= Html::encode($this->title) ?></h1>
+<div class="order-update">
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="order-form">
         <?php $form = ActiveForm::begin([
@@ -30,17 +33,20 @@ $this->title = 'Редактирование заказа: ' . $model->id;
             'enableClientValidation' => true,
         ]); ?>
 
-        <?= $form->field($model, 'status_id')->dropDownList(
-            ArrayHelper::map(Status::find()->all(), 'id', 'title'),
-            [
-                'prompt' => 'Выберите статус...',
+        <?= $form->field($model, 'status_id', [
+            'inputOptions' => [
                 'class' => 'form-select',
+                'prompt' => 'Выберите статус...'
             ]
+        ])->dropDownList(
+            ArrayHelper::map(Status::find()->all(), 'id', 'title'),
+            ['class' => 'form-control']
         ) ?>
 
         <div class="form-group mt-4">
             <?= Html::submitButton('Сохранить', [
-                'class' => 'btn btn-success px-4 py-2 fw-semibold',
+                'class' => 'btn btn-success px-4 py-2',
+                'style' => 'font-weight: 500;'
             ]) ?>
         </div>
 

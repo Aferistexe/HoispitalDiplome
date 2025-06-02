@@ -38,6 +38,12 @@ $statusValue = getStatusText($model->is_completed);
 $statusClass = getStatusClass($model->is_completed);
 
 ?>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+
 <div class="contact-view container mt-4">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -58,7 +64,7 @@ $statusClass = getStatusClass($model->is_completed);
         <div class="card-body">
             <?= DetailView::widget([
                 'model' => $model,
-                'options' => ['class' => 'table table-striped detail-view'],
+                'options' => ['class' => 'table detail-view'],
                 'attributes' => [
                     [
                         'attribute' => 'name',

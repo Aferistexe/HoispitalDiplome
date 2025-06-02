@@ -7,9 +7,18 @@ use yii\helpers\Html;
 /** @var app\models\Contact $model */
 
 $this->title = 'Создание контакта';
+$this->registerCssFile('@web/css/contact_create.css');
 
 
 ?>
+<head>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+</head>
 
 <div class="contact-create">
     <div class="container py-5">
@@ -69,7 +78,7 @@ $this->title = 'Создание контакта';
                         </div>
 
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <?= Html::a('Отмена', ['index'], [
+                            <?= Html::a('Отмена', ['site/index'], [
                                 'class' => 'btn btn-outline-secondary me-md-2'
                             ]) ?>
                             

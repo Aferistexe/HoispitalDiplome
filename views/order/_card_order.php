@@ -1,6 +1,14 @@
 <?php
 
-use yii\bootstrap5\Html;
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+/** @var app\models\Order $model */
+
+$this->registerCssFile('@web/css/admin_orders.css', [
+    'depends' => [\yii\bootstrap5\BootstrapAsset::class]
+]);
+
 
 ?><head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -9,9 +17,9 @@ use yii\bootstrap5\Html;
 
 
 
-<div class="card">
-  <div class="card-body">
-  <p class="card-title fs-4">Заявка №<?= $model->id ?></p>
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+    <p class="card-title fs-4">Заявка №<?= $model->id ?></p>
     <p class="card-text">ФИО: <?= Html::encode($model->user->full_name) ?></p>
     <p class="card-text">Услуга: <?= Html::encode($model->service->title) ?></p>
     <p class="card-text">Тип устройства: <?= Html::encode($model->deviceType->title) ?></p>
@@ -26,7 +34,14 @@ use yii\bootstrap5\Html;
     <p class="card-text">Дата и время записи: <?= Html::encode($model->appointment_date . ' ' . $model->appointment_time) ?></p>
     <p class="card-text">Статус: <?= Html::encode($model->status->title) ?></p>
     <p class="card-text">Отзыв: <?= Html::encode($model->feedback) ?></p>
+        <!-- Кнопка завершения -->
+        <?php
+        $isMyOrder = $model->doctor_id == Yii::$app->user->identity->doctor->id ?? null;
+        if ($isMyOrder && !$model->is_completed): ?>
+            <form method="post" action="<?= Url::to(['update_doctors']) ?>">
 
-    <?= Html::a('Оставить отзыв', ['feedback', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-  </div>
+                <?= Html::a('Обновить статус', ['update_doctors', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+            </form>
+        <?php endif; ?>
+    </div>
 </div>

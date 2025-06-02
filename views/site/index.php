@@ -4,6 +4,10 @@
 $this->title = 'Главная страница';
 
 ?>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
 
 
 
@@ -12,9 +16,8 @@ $this->title = 'Главная страница';
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <h1 class="display-4 fw-bold mb-4">Ведущая клиника кибермедицины в Нейтенти</h1>
+                        <h1 class="display-4 fw-bold mb-4">Ведущая клиника кибермедицины</h1>
                         <p class="lead mb-4">Мы предлагаем передовые медицинские решения, основанные на инновационных технологиях, для обеспечения здоровья и благополучия наших пациентов.</p>
-                        <a href="#" class="btn btn-primary btn-lg">Подробнее</a>
                     </div>
                     <div class="col-lg-6">
                         <img src="/web/img/main.jpg" alt="Кибермедицина" class="img-fluid rounded-3 shadow31">
@@ -27,7 +30,7 @@ $this->title = 'Главная страница';
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center">
-                        <h2 class="section-title mb-4">"Помощь.нет" - это не просто клиника</h2>
+                        <h2 class="section-title mb-4">"Помощь.есть" - это не просто клиника</h2>
                         <p class="section-text">Это место, где кибермедицина встречает человеческое понимание и заботу. Наша команда врачей, специализирующихся в области кибермиплантов, обеспечивает индивидуальный подход к каждому пациенту, помогая им восстановить здоровье и качество жизни.</p>
                     </div>
                 </div>
@@ -73,16 +76,16 @@ $this->title = 'Главная страница';
                     </div>
 
                     <!-- Joint Replacement -->
+
                     <div class="col-md-6 col-lg-4">
                         <div class="specialization-card h-100">
                             <div class="card-icon">
-                                <i class="bi bi-bone"></i>
+                                <i class="bi bi-body-text"></i>
                             </div>
                             <h3>Центр замены суставов</h3>
-                            <p>Проведение операций по замене суставов с использованием передовых имплантатов. Наша команда опытных икрургов и медицинских специалистов обеспечивает высококачественное лечение и реабилитацию пациентов с заболеваниями суставов.</p>
+                            <p>Проведение операций по замене суставов с использованием передовых имплантатов. Наша команда опытных хирургов и медицинских специалистов обеспечивает высококачественное лечение и реабилитацию пациентов с заболеваниями суставов.</p>
                         </div>
                     </div>
-
                     <!-- Cyberimplantation 2.0 -->
                     <div class="col-md-6 col-lg-4">
                         <div class="specialization-card h-100">
@@ -145,13 +148,13 @@ $this->title = 'Главная страница';
                             <ul class="package-features">
                                 <li><i class="bi bi-check-circle"></i> Кибер-диагностика и анализ</li>
                                 <li><i class="bi bi-check-circle"></i> КиберЭКГ</li>
-                                <li><i class="bi bi-check-circle"></i> Кибермилланты Премиум</li>
-                                <li><i class="bi bi-check-circle"></i> Сканирование киберлипидов</li>
-                                <li><i class="bi bi-check-circle"></i> Киберрентген грудной клетки</li>
-                                <li><i class="bi bi-check-circle"></i> Киберсахар в крови</li>
-                                <li><i class="bi bi-check-circle"></i> Основной пакет киберзасровья</li>
-                                <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
-                                <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
+                                <li><i class="bi bi-x-circle"></i> Кибермилланты Премиум</li>
+                                <li><i class="bi bi-x-circle"></i> Сканирование киберлипидов</li>
+                                <li><i class="bi bi-x-circle"></i> Киберрентген грудной клетки</li>
+                                <li><i class="bi bi-x-circle"></i> Киберсахар в крови</li>
+                                <li><i class="bi bi-x-circle"></i> Основной пакет киберзасровья</li>
+                                <li><i class="bi bi-x-circle"></i> Базовый план киберблагополучия</li>
+                                <li><i class="bi bi-x-circle"></i> Тесты функции легких</li>
                             </ul>
                             <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                         </div>
@@ -169,11 +172,11 @@ $this->title = 'Главная страница';
                                 <li><i class="bi bi-check-circle"></i> КиберЭКГ</li>
                                 <li><i class="bi bi-check-circle"></i> Кибермилланты Премиум</li>
                                 <li><i class="bi bi-check-circle"></i> Сканирование киберлипидов</li>
-                                <li><i class="bi bi-check-circle"></i> Киберрентген грудной клетки</li>
-                                <li><i class="bi bi-check-circle"></i> Киберсахар в крови</li>
-                                <li><i class="bi bi-check-circle"></i> Основной пакет киберзасровья</li>
-                                <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
-                                <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
+                                <li><i class="bi bi-x-circle"></i> Киберрентген грудной клетки</li>
+                                <li><i class="bi bi-x-circle"></i> Киберсахар в крови</li>
+                                <li><i class="bi bi-x-circle"></i> Основной пакет киберзасровья</li>
+                                <li><i class="bi bi-x-circle"></i> Базовый план киберблагополучия</li>
+                                <li><i class="bi bi-x-circle"></i> Тесты функции легких</li>
                             </ul>
                             <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                         </div>
@@ -193,9 +196,9 @@ $this->title = 'Главная страница';
                                 <li><i class="bi bi-check-circle"></i> Сканирование киберлипидов</li>
                                 <li><i class="bi bi-check-circle"></i> Киберрентген грудной клетки</li>
                                 <li><i class="bi bi-check-circle"></i> Киберсахар в крови</li>
-                                <li><i class="bi bi-check-circle"></i> Основной пакет киберзасровья</li>
-                                <li><i class="bi bi-check-circle"></i> Базовый план киберблагополучия</li>
-                                <li><i class="bi bi-check-circle"></i> Тесты функции легких</li>
+                                <li><i class="bi bi-x-circle"></i> Основной пакет киберзасровья</li>
+                                <li><i class="bi bi-x-circle"></i> Базовый план киберблагополучия</li>
+                                <li><i class="bi bi-x-circle"></i> Тесты функции легких</li>
                             </ul>
                             <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>
                         </div>

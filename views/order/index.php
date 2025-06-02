@@ -14,6 +14,12 @@ $this->registerCssFile('@web/css/order_index.css');
 
 $this->title = 'Заказы';
 ?>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+
 <div class="order-index">
 
     <h1><?= Html::encode($this->title) ?></h1>

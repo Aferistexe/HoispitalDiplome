@@ -6,6 +6,9 @@
 
 <head>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/web/css/producs.css">
 </head>
 
@@ -93,7 +96,7 @@
                                 <img src="/web/img/tovar/Lungs.jpg" alt="Синтолетие" class="img-fluid">
                             </div>
                             <div class="product-body">
-                                <h3 class="product-title">Синтолетие</h3>
+                                <h3 class="product-title">Синтолегкие</h3>
                                 <p class="product-description">Синтолетие с улучшенной газообменной функцией, обеспечивающие оптимальный уровень кислорода в крови.</p>
                                 <div class="product-price">$180.00</div>
                                 <button class="btn btn-package" onclick="location.href='/order/create'">Записаться</button>

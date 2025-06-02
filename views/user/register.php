@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var app\models\User $model */
 
-$this->title = 'Создание пользователя';
+$this->title = 'Регистрация';
 
 
 // Подключение CSS
@@ -67,7 +67,7 @@ $this->registerCssFile('@web/css/user-form.css', [
         </div>
 
         <div class="form-actions">
-            <?= Html::submitButton('Создать пользователя', [
+            <?= Html::submitButton('Зарегистрироваться', [
                 'class' => 'submit-button',
                 'name' => 'create-button'
             ]) ?>

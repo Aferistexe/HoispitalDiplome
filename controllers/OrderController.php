@@ -8,6 +8,7 @@ use app\models\Status;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -19,6 +20,9 @@ class OrderController extends Controller
  
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest || Yii::$app->user->identity->role_id != 1) {
+            throw new ForbiddenHttpException('Доступ запрещён.');
+        }
         $searchModel = new OrderSearch();
         
         $dataProvider = new ActiveDataProvider([
@@ -36,8 +40,31 @@ class OrderController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionDoctor()
+{
+    if (Yii::$app->user->isGuest || Yii::$app->user->identity->role_id != 3) {
+        throw new ForbiddenHttpException('Доступ запрещён.');
+    }
+
+    $doctorId = \app\models\Doctors::find()
+        ->select('id')
+        ->where(['user_id' => Yii::$app->user->id])
+        ->scalar();
+
+    $dataProvider = new \yii\data\ActiveDataProvider([
+        'query' => Order::find()->where(['doctor_id' => $doctorId])->orderBy(['created_at' => SORT_DESC]),
+        'pagination' => ['pageSize' => 8],
+    ]);
+
+    return $this->render('doctor', [
+        'dataProvider' => $dataProvider,
+    ]);
+}
     public function actionAdmin()
     {
+        if (Yii::$app->user->isGuest || Yii::$app->user->identity->role_id != 2) {
+            throw new ForbiddenHttpException('Доступ запрещён.');
+        }
         $searchModel = new OrderSearch();
         
         $dataProvider = new ActiveDataProvider([
@@ -58,10 +85,12 @@ class OrderController extends Controller
 
     public function actionCreate()
     {
+        if (Yii::$app->user->isGuest || Yii::$app->user->identity->role_id != 1) {
+            throw new ForbiddenHttpException('Доступ запрещён.');
+        }
         $model = new Order();
         $model->status_id = Status::$STATUS_NEW;
         $model->user_id = Yii::$app->user->id;
-        Yii::$app->session->setFlash('success',"Вы успешно сделали заказ");
 
         $model->save();
 
@@ -87,11 +116,12 @@ class OrderController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (Yii::$app->user->isGuest || Yii::$app->user->identity->role_id != 2) {
+            throw new ForbiddenHttpException('Доступ запрещён.');}
         $model = $this->findModel($id);
         
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success',"Вы успешно обновили статус");
             return $this->redirect(['admin']);
         }
 
@@ -99,12 +129,30 @@ class OrderController extends Controller
             'model' => $model,
         ]);
     }
+    public function actionUpdate_doctors($id)
+    {
+        if (Yii::$app->user->isGuest || Yii::$app->user->identity->role_id != 3) {
+            throw new ForbiddenHttpException('Доступ запрещён.');
+        }
+        $model = $this->findModel($id);
+        
+
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            return $this->redirect(['doctor']);
+        }
+
+        return $this->render('update_doctors', [
+            'model' => $model,
+        ]);
+    }
     public function actionFeedback($id)
     {
+        if (Yii::$app->user->isGuest || Yii::$app->user->identity->role_id != 1) {
+            throw new ForbiddenHttpException('Доступ запрещён.');
+        }
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success',"Вы успешно отсавили отзыв");
             return $this->redirect(['index']);
         }
 

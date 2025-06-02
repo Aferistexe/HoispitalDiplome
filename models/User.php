@@ -187,4 +187,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         $this->password = Yii::$app->security->generatePasswordHash($password);
     }
+    public function getDoctor()
+    {
+        return $this->hasOne(Doctors::class, ['user_id' => 'id']);
+    }
 }

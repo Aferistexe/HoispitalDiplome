@@ -1,74 +1,72 @@
 /* contact.css */
 
-/* Основные стили для завершенных контактов */
+/* === Завершённая карточка контакта === */
 .contact-card.completed {
     border-left: 4px solid #4CAF50;
     background-color: rgba(76, 175, 80, 0.03);
     opacity: 0.9;
 }
-
-/* Блокировка элементов интерфейса */
+main{
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+}
+/* Отключение интерактива для завершённой карточки */
 .contact-card.completed .contact-completed {
     pointer-events: none;
     opacity: 0.7;
-    cursor: default;
+}
+.contact-card {
+    position: relative;
 }
 
-/* Стили для dropdown меню */
+/* Скрываем dropdown toggle, но показываем меню */
 .contact-card.completed .dropdown-toggle {
-    display: none; /* Скрываем кнопку меню */
+    display: none;
 }
 
 .contact-card.completed .dropdown-menu {
-    display: block !important; /* Показываем только принудительно */
+    position: static; /* убираем абсолютное позиционирование */
+    display: block !important;
     box-shadow: none;
     border: none;
-    position: static;
-    float: none;
     padding: 0;
-}
-
-/* Стили для пунктов меню */
-.contact-card.completed .dropdown-item {
-    display: none; /* Скрываем все пункты по умолчанию */
-    padding: 0.25rem 1rem;
+    margin-top: 10px; /* немного отступа для видимости */
 }
 
 /* Показываем только кнопку удаления */
+.contact-card.completed .dropdown-item {
+    display: none;
+}
+
 .contact-card.completed .dropdown-item.text-danger {
     display: block;
     color: #dc3545 !important;
-    pointer-events: auto;
-    cursor: pointer;
+    font-weight: 500;
+    padding: 8px 12px;
+    text-align: left; /* чтобы не прилипала к правому краю */
 }
 
-/* Стили для бейджа статуса */
+/* Статус завершения */
 .contact-card.completed .status-badge {
     background-color: #4CAF50 !important;
-    color: white;
+    color: #fff;
 }
 
-/* Текст и ссылки */
+/* Затемнение текста и ссылок */
 .contact-card.completed .card-title,
 .contact-card.completed .contact-info,
-.contact-card.completed .card-footer {
-    color: #777;
-}
-
-.contact-card.completed a {
-    color: #6c757d !important;
-    pointer-events: none;
-    text-decoration: none;
-    cursor: default;
-}
-
-/* Исключение для кнопки удаления */
-.contact-card.completed a.text-danger {
-    pointer-events: auto !important;
-    cursor: pointer !important;
-}
-
-/* Адаптация для телефона/email */
+.contact-card.completed .card-footer,
+.contact-card.completed a,
 .contact-card.completed .text-decoration-none {
     color: #6c757d !important;
+}
+
+/* Отключаем ссылки, кроме удаления */
+.contact-card.completed a {
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.contact-card.completed a.text-danger {
+    pointer-events: auto !important;
+    cursor: pointer;
 }

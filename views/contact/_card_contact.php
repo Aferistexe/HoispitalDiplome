@@ -10,6 +10,12 @@ $this->registerCssFile('@web/css/contact.css');
 $toggleUrl = Url::to(['contact/toggle-completed', 'id' => $model->id]);
 $csrfToken = Yii::$app->request->csrfToken;
 ?>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+
 
 <div class="contact-card card mb-3 <?= $model->is_completed ? 'completed' : '' ?> status-<?= $model->getStatusClass() ?>">
     <div class="card-header d-flex justify-content-between align-items-center">
